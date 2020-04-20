@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class Artists extends Controller
+class Albums extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,18 +17,21 @@ class Artists extends Controller
      */
     public function index()
     {
-       
         //
-         $artists = Artist::paginate(10);
-         return view('artist/home',compact('artists'));
+        $albums = Album::orderByRaw('RAND()')->take(8)->get();
+        return view('album/home', compact('albums'));
     }
-    
-    public function artist_detail($id)
+    public function detail($id)
     {
-        $artist = Artist::with('albums')->find($id);
-        return view('artist/detail',compact('artist'));
+        // $albums = Album::;
+        
+        $albums = Album::find($id);
+        return view('/album/detail',compact('albums'));
+        
+        $comment = Album::find($id);
+
+        echo $comment->artist->name;
     }
-  
 
     /**
      * Show the form for creating a new resource.
@@ -59,7 +62,7 @@ class Artists extends Controller
      */
     public function show($id)
     {
-      
+        //
     }
 
     /**

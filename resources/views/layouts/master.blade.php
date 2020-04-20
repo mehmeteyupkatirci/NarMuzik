@@ -104,8 +104,7 @@
                                 <ul>	
         							<li class="active"><a href="/">home</a></li>
 									<li class="menu-item "><a href="/artists">artist</a></li>
-									<li class="menu-item "><a href="/albums">Albums</a></li>
-									<li class="menu-item "><a href="/fun">Fun</a></li>									
+									<li class="menu-item "><a href="/albums">Albums</a></li>					
 								</ul>
                             </nav>
                             <div id="kode-responsive-navigation" class="dl-menuwrapper">
