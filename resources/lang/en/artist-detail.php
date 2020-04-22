@@ -1,7 +1,7 @@
 <?php
 
 return[
-
+    'play' => 'Play All',
     'follow' => 'Follow',
     'followers' => 'Followers',
     'following' => 'Following',

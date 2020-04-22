@@ -2,6 +2,6 @@
 
 return [
 
-    'Page' => 'Albums',
+    'page' => 'Albums',
 
 ];

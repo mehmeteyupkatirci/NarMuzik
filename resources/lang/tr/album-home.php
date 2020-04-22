@@ -2,5 +2,5 @@
 
 return [
 
-    'Page' => 'Albümler',
+    'page' => 'Albümler',
 ];

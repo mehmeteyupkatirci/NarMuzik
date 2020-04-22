@@ -4,7 +4,7 @@
     <section class="artist-section">
         <div class="container">
             <div class="mp3-list-wrap">
-                    <h2>Albums</h2>
+                    <h2>{{ trans('album-home.page') }}</h2>
            <div class="row">
                 @if ($albums)
                     @foreach ($albums as $album)

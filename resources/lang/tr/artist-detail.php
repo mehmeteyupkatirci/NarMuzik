@@ -2,6 +2,7 @@
 
 return[
 
+    'play' => 'Tümünü Çal',
     'follow' => 'Takip et',
     'followers' => 'Takipçi',
     'following' => 'Takip Ediliyor',
