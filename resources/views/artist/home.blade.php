@@ -1,7 +1,5 @@
 @extends('layouts.master')
 @section('content')
-        <h6>@section('sub_h')NarMüzik @endsection</h6>
-        <p>@section('sub_p')Artist Homepage Denemesi Lorem ipsum dolor sit amet. Lorem ipsum dolor sit. @endsection</p>
      <!--Main Content Wrap Start-->
      <div class="kode_content_wrap">
         <section>
@@ -13,11 +11,11 @@
                     <!--Mp3 List Table Start-->
                     <ul class="mp3-list-table">
                         <li class="list-header">
-                            <div class="mp3-title"><h6>Artist Adı</h6></div>
-                            <div class="artists"><h6>Müzik Türü</h6></div>
-                            <div class="remixers"><h6>Popülerlik %100</h6></div>
-                            <div class="mp3-label"><h6>Oluşturulma Tarihi</h6></div>
-                            <div class="genre"><h6>Güncelleme Tarihi</h6></div>
+                            <div class="mp3-title"><h6>Artist Name</h6></div>
+                            <div class="artists"><h6>Genres</h6></div>
+                            <div class="remixers"><h6>Popularity %100</h6></div>
+                            <div class="mp3-label"><h6>Created Date</h6></div>
+                            <div class="genre"><h6>Updated Date</h6></div>
                             <div class="key"><h6></h6></div>
                             <div class="released"><h6></h6></div>
                         </li>

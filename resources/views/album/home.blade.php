@@ -3,6 +3,8 @@
 <div class="kode_content_wrap">
     <section class="artist-section">
         <div class="container">
+            <div class="mp3-list-wrap">
+                    <h2>Albums</h2>
            <div class="row">
                 @if ($albums)
                     @foreach ($albums as $album)
