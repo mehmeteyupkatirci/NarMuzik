@@ -133,7 +133,7 @@
                                     <!--Heading Start-->
                                     <div class="msl-black">
                                         <div class="msl-heading light-color">
-                                            <h5><span>Top Platylist</span></h5>
+                                            <h5><span>Top Playlist</span></h5>
                                         </div>
                                     </div>
                                     <!--Heading End-->
