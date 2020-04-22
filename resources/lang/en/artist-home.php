@@ -2,7 +2,7 @@
 
 return[
 
-    'Page' => 'Artists',
+    'page' => 'Artists',
     'name' => 'Artist Name',
     'genres'=> 'Genres',
     'popularity' => 'Popularity %100',

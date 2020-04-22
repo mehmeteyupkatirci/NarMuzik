@@ -6,16 +6,16 @@
             <div class="container">
                 <div class="mp3-list-wrap">
                     <div class="heading-2">
-                        <h5>ARTISTS</h5>
+                        <h5>{{ trans('artist-home.page') }}</h5>
                     </div>
                     <!--Mp3 List Table Start-->
                     <ul class="mp3-list-table">
                         <li class="list-header">
-                            <div class="mp3-title"><h6>Artist Name</h6></div>
-                            <div class="artists"><h6>Genres</h6></div>
-                            <div class="remixers"><h6>Popularity %100</h6></div>
-                            <div class="mp3-label"><h6>Created Date</h6></div>
-                            <div class="genre"><h6>Updated Date</h6></div>
+                            <div class="mp3-title"><h6>{{ trans('artist-home.name') }}</h6></div>
+                            <div class="artists"><h6>{{ trans('artist-home.genres') }}</h6></div>
+                            <div class="remixers"><h6>{{ trans('artist-home.popularity') }}</h6></div>
+                            <div class="mp3-label"><h6>{{ trans('artist-home.created_at') }}</h6></div>
+                            <div class="genre"><h6>{{ trans('artist-home.updated_at') }}</h6></div>
                             <div class="key"><h6></h6></div>
                             <div class="released"><h6></h6></div>
                         </li>

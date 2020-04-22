@@ -2,7 +2,7 @@
 
 return[
 
-    'Page' => 'Şarkıcılar',
+    'page' => 'Şarkıcılar',
     'name' => 'Şarkıcı Adı',
     'genres'=> 'Müzik Türü',
     'popularity' => 'Popülerlik %100',
