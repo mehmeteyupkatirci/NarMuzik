@@ -2,6 +2,8 @@
 @section('content')
 <div class="container">
     <div class="row">
+        <h2>{{$albums->name}} Detail</h2>
+        <br>
         <div class="col-md-4 col-sm-6">
             <div class="msl-blog-full blog-small">
                 <figure>
@@ -13,7 +15,6 @@
                     <p> Genres : {{$albums->artist->genres}} <br/>
                         Popularity : 100 % {{$albums->artist->popularity}}<br/>
                         Relaese Date : {{$albums->created_at}}<br/>
-                        Relaese Date : {{$albums->updated_at}}<br/>
                     </p>
                     <a class="btn-1" href="{{route ('artist_detail',$albums->artist_id)}}">Show More</a>
                 </div>
