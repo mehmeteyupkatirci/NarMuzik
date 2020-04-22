@@ -14,7 +14,7 @@ return[
     'options' => 'options',
     'playlist' => 'Top Playlist',
     'overview' => 'Overview',
-    'contact' => 'Contact Details :',
+    'contact' => 'Contact Details',
 
 ];
 

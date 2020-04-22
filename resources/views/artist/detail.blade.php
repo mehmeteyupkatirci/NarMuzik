@@ -8,9 +8,9 @@
                 <figure><img src="\extra-images\kode-event1.jpg" alt="KODEFOREST"></figure>
                 <div class="text-overflow">
                     <h5>{{ $artist->name }}</h5>
-                    <a class="btn-1 theme-bg" href="#"><i class="fa fa-volume-up"></i> Play All</a>
+                    <a class="btn-1 theme-bg" href="#"><i class="fa fa-volume-up"></i>{{ trans('artist-detail.play') }}</a>
                     <a class="btn-1 theme-bg" target="_blank" href="https://github.com/mehmeteyupkatirci"><i
-                            class="fa fa-github fa-lg"></i>Follow</a>
+                            class="fa fa-github fa-lg"></i>{{ trans('artist-detail.follow') }}</a>
                     <div class="clic-btn">
                         <span></span>
                         <span></span>
@@ -19,8 +19,8 @@
                 </div>
             </div>
             <div class="following-wrap">
-                <p>Followers<span>23202,315</span></p>
-                <p>Following<span>02</span></p>
+                <p>{{ trans('artist-detail.followers') }}<span>23202,315</span></p>
+                <p>{{ trans('artist-detail.following') }}<span>02</span></p>
             </div>
         </div>
         <!--Music Album Wrap Start-->
@@ -29,10 +29,10 @@
         <div class="container">
             <ul class="nav-tabs music-album-nav">
                 <li class="active" role="presentation">
-                    <a data-toggle="tab" aria-controls="albums" role="tab" href="#albums">albums</a>
+                    <a data-toggle="tab" aria-controls="albums" role="tab" href="#albums">{{ trans('artist-detail.albums') }}</a>
                 </li>
                 <li>
-                    <a data-toggle="tab" aria-controls="albums" href="#biography">Biography</a>
+                    <a data-toggle="tab" aria-controls="albums" href="#biography">{{ trans('artist-detail.bio') }}</a>
                 </li>
             </ul>
         </div>
@@ -51,7 +51,7 @@
                                 <!--Music Album List Thumb Start-->
                                 <div class="msl-black">
                                     <div class="msl-heading light-color">
-                                        <h5><span>Artists Albums</span></h5>
+                                        <h5><span>{{ trans('artist-detail.artistAlbums') }}</span></h5>
                                     </div>
                                 </div>
                                 <div class="album-list-thumb-outer">
@@ -61,19 +61,19 @@
                                                 <div class="title-btn"><span></span></div>
                                             </li>
                                             <li>
-                                                <div class="title-btn"><span>Album Name</span></div>
+                                                <div class="title-btn"><span>{{ trans('artist-detail.albumName') }}</span></div>
                                             </li>
 
                                             <li>
-                                                <div class="title-btn"><span>Genres</span></div>
+                                                <div class="title-btn"><span>{{ trans('artist-detail.genres') }}</span></div>
                                             </li>
 
                                             <li>
-                                                <div class="title-btn"><span>Realese Date</span></div>
+                                                <div class="title-btn"><span>{{ trans('artist-detail.realese') }}</span></div>
                                             </li>
 
                                             <li>
-                                                <div class="title-btn"><span>options</span></div>
+                                                <div class="title-btn"><span>{{ trans('artist-detail.options') }}</span></div>
                                             </li>
                                         </ul>
                                         @if($artist->albums)
@@ -133,7 +133,7 @@
                                     <!--Heading Start-->
                                     <div class="msl-black">
                                         <div class="msl-heading light-color">
-                                            <h5><span>Top Playlist</span></h5>
+                                            <h5><span>{{ trans('artist-detail.playlist') }}</span></h5>
                                         </div>
                                     </div>
                                     <!--Heading End-->
@@ -187,7 +187,7 @@
                                 <!--Heading 3 Start-->
                                 <div class="msl-black">
                                     <div class="heading3">
-                                        <h4><i class="fa fa-user"></i>Overview</h4>
+                                        <h4><i class="fa fa-user"></i>{{ trans('artist-detail.overview') }}</h4>
                                     </div>
                                 </div>
                                 <!--Heading 3 End-->
@@ -198,7 +198,7 @@
                                         Those who listen to them on stage realize how lucky they really are.</p>
                                     <!--Widget Info Start-->
                                     <div class="widget-event-info">
-                                        <h5>Contact Details :</h5>
+                                        <h5>{{ trans('artist-detail.contact') }}</h5>
                                         <ul>
                                             <li>
                                                 <h6><i class="fa fa-globe"></i>Website</h6>

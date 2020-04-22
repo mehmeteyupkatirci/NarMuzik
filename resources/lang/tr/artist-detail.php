@@ -1,7 +1,6 @@
 <?php
 
 return[
-
     'play' => 'Tümünü Çal',
     'follow' => 'Takip et',
     'followers' => 'Takipçi',
@@ -15,7 +14,7 @@ return[
     'options' => 'Seçenekler',
     'playlist' => 'Playlist',
     'overview' => 'Genel Bakış',
-    'contact' => 'İletişim Detayları :',
+    'contact' => 'İletişim Detayları',
 
 ];
 
