@@ -12,10 +12,10 @@
                 <div class="slide">
                     <div id="particles-js" class="overlay"></div>
                     <div class="banner_content container">
-                        <div class="b_title animated">NarMuzik</div>
-                        <p class="animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br>tempor incididunt ut magna aliqua.</p>
-                        <a href="/artists" class="btn_normal border_btn animated">Artist</a>
-                        <a href="/albums" class="btn_normal border_btn animated ">Albums</a>
+                        <div class="b_title animated">{{ trans('homepage.title') }}</div>
+                        <p class="animated">{{ trans('homepage.banner') }}</p>
+                        <a href="/artists" class="btn_normal border_btn animated">{{ trans('homepage.buton1') }}</a>
+                        <a href="/albums" class="btn_normal border_btn animated ">{{ trans('homepage.button2') }}</a>
                     </div>
                 </div>
                 
@@ -26,7 +26,7 @@
                 <div class="kode_upcoming_event">
                     <div class="container">
                         <div class="heading_ho2">
-                            <h3>Top 3 most popular artists</h3>
+                            <h3>{{ trans('homepage.top') }}</h3>
                         </div>
                         <div class="row">
                             <div class="col-md-8 col-sm-12 col-xs-12">
@@ -37,7 +37,7 @@
                                             <div class="kode_event_content">
                                                 <h4><a href="#">{{$artist->name}}</a></h4>
                                                 <small>{{$artist->genres}}</small>
-                                                <a href="{{route ('artist_detail',$artist->id)}}" class="btn_normal bk_border_btn active">Show More</a>
+                                                <a href="{{route ('artist_detail',$artist->id)}}" class="btn_normal bk_border_btn active">{{ trans('homepage.show') }}</a>
                                             </div>
                                         </div>
                                     @endforeach
@@ -45,7 +45,7 @@
                             </div>
                             <div class="col-md-4 col-sm-12 col-xs-12">
                                 <div class="kode_jplayer open_player">
-                                    <ul class="kode_tabs"><li class="active"><a data-toggle="tab" href="#mlp">Music</a></li></ul>
+                                    <ul class="kode_tabs"><li class="active"><a data-toggle="tab" href="#mlp">{{ trans('homepage.music') }}</a></li></ul>
                                     <div class="tab-content">
                                         <div class="widget widget-playlist tab-pane fade in active" id="mlp">
                                             <div class="widget-player">

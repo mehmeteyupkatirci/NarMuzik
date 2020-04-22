@@ -1,7 +1,7 @@
 <?php 
 
 return [
-
+    'title'=> 'NarMüzik',
     'banner' => 'NarMüzik yeni müzik keşfetme platformu',
     'buton1' => 'Şarkıcılar',
     'button2'=> 'Albümler',
