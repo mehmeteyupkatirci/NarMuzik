@@ -6,6 +6,7 @@ return [
     'buton1' => 'Artists',
     'button2'=> 'Albums',
     'top' => 'Top 3 most popular artists',
-    'music' => 'Music'
+    'music' => 'Music',
+    'show' => 'Show More'
 ];
 ?>

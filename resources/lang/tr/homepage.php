@@ -6,6 +6,7 @@ return [
     'buton1' => 'Şarkıcılar',
     'button2'=> 'Albümler',
     'top' => 'En popüler 3 Şarkıcı',
-    'music' => 'Müzik'
+    'music' => 'Müzik',
+    'show' => 'Daha Fazla'
 ];
 ?>

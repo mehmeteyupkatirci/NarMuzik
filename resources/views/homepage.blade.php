@@ -37,7 +37,7 @@
                                             <div class="kode_event_content">
                                                 <h4><a href="#">{{$artist->name}}</a></h4>
                                                 <small>{{$artist->genres}}</small>
-                                                <a href="{{route ('artist_detail',$artist->id)}}" class="btn_normal bk_border_btn active">Show</a>
+                                                <a href="{{route ('artist_detail',$artist->id)}}" class="btn_normal bk_border_btn active">Show More</a>
                                             </div>
                                         </div>
                                     @endforeach
