@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>NarMüzik</title>
+        <title>{{ trans('master.title') }}</title>
         <!-- Bootstrap core CSS -->
         <link href="\css\bootstrap.css" rel="stylesheet">
         <!-- Preloader CSS -->
@@ -66,7 +66,7 @@
                     <div class="header-1st-row">
                         <div class="left-side">
                             <div class="breaking-news-column">
-                                <strong>Breaking News:</strong>
+                                <strong>{{ trans('master.news') }}</strong>
                                 <div class="brk-slider">
                                     <div class="news_items">
                                         <p>NarMüzik dummy verilerle ilk gösterim. </p>
@@ -83,8 +83,8 @@
                         <div class="right-side">
                             <div class="login-register">
                                 <span><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
-                                <a href="#" data-toggle="modal" data-target="#login-register1">login</a>
-                                <a href="#" data-toggle="modal" data-target="#login-register1">register</a>
+                                <a href="#" data-toggle="modal" data-target="#login-register1">{{ trans('master.login') }}</a>
+                                <a href="#" data-toggle="modal" data-target="#login-register1">{{ trans('master.register') }}</a>
                             </div>
                             <div class="social-icons">
                                 <ul>
@@ -102,17 +102,17 @@
                         <div class="fst-navigation">
                             <nav class="navigation-1">
                                 <ul>	
-        							<li class="active"><a href="/">home</a></li>
-									<li class="menu-item "><a href="/artists">artist</a></li>
-									<li class="menu-item "><a href="/albums">Albums</a></li>					
+        							<li class="active"><a href="/">{{ trans('master.home') }}</a></li>
+									<li class="menu-item "><a href="/artists">{{ trans('master.artist') }}</a></li>
+									<li class="menu-item "><a href="/albums">{{ trans('master.albums') }}</a></li>					
 								</ul>
                             </nav>
                             <div id="kode-responsive-navigation" class="dl-menuwrapper">
 	                            <button class="dl-trigger"></button>
 	                            <ul class="dl-menu">
-	                                <li class="menu-item"><a href="/">Home</a></li>
-	                                <li class="menu-item"><a href="/artists">artist</a></li>
-	                                <li class="menu-item"><a href="/albums">albums</a></li>
+	                                <li class="menu-item"><a href="/">{{ trans('master.home') }}</a></li>
+	                                <li class="menu-item"><a href="/artists">{{ trans('master.artist') }}</a></li>
+	                                <li class="menu-item"><a href="/albums">{{ trans('master.albums') }}</a></li>
 	                               
 	                            </ul>
 	                        </div>
@@ -135,18 +135,18 @@
             <!--Copy Right Wrap Start-->
             <div class="msl-copyright theme-bg">
                 <div class="container">
-                    <p class="pull-left">© 2020 All Right Reserved. <a target="_blank" href="https://github.com/mehmeteyupkatirci/">NarMuzik</a></p>
+                    <p class="pull-left">© 2020 All Right Reserved. <a target="_blank" href="https://github.com/mehmeteyupkatirci/">{{ trans('master.title') }}</a></p>
                     <!--Navigation Start-->
                     <nav class="navigation pull-right">
                         <ul>
                             <li class="active">
-                                <a href="/">Home</a>
+                                <a href="/">{{ trans('master.home') }}</a>
                             </li>
                             <li>
-                                <a href="/artists">Artist</a>
+                                <a href="/artists">{{ trans('master.artist') }}</a>
 							</li>
 							<li>
-                                <a href="/albums">Albums</a>
+                                <a href="/albums">{{ trans('master.albums') }}</a>
                             </li>
                         </ul>
                     </nav>
@@ -166,47 +166,47 @@
   						<form>
   							<div class="ms_width_off50">
       							<div class="ms-heading2">
-      								<h3>Sign in</h3>
-      								<p>welcome back! sign in to your account</p>
+      								<h3>{{ trans('master.sign') }}</h3>
+      								<p>{{ trans('master.welcome') }}</p>
       							</div>
       							<div class="input-felid">
-      								<label>username or email address</label>
+      								<label>{{ trans('master.username') }}</label>
       								<input type="text" placeholder="user name or email address*">
       							</div>
       							<div class="input-felid">
-      								<label>password</label>
+      								<label>{{ trans('master.password') }}</label>
       								<input type="text" placeholder="password*">
       							</div>
       							<div class="pull-left">
       								<input type="checkbox" name="remember" id="clik">
       								<span class="box"></span>
-      								<label for="clik" class="ck-title">remember me</label>
+      								<label for="clik" class="ck-title">{{ trans('master.remember') }}</label>
       							</div>
       							<div class="pull-right">
-      								<a href="#" class="fpw">forgotten password?</a>
+      								<a href="#" class="fpw">{{ trans('master.resetP') }}</a>
       							</div>
       							<div class="btn-submit">
-      								<button class="btn-normal2" type="submit">login</button>
+      								<button class="btn-normal2" type="submit">{{ trans('master.login') }}</button>
       							</div>
   							</div>
   							<sup>Or</sup>
   							<div class="ms_width_off50 bg-trans">
       							<div class="ms-heading2">
-      								<h3>create new account</h3>
-      								<p>create your very own trenda account</p>
+      								<h3>{{ trans('master.create') }}</h3>
+      								<p>{{ trans('master.trend') }}</p>
       							</div>
       							<div class="input-felid">
-      								<label>email address</label>
+      								<label>{{ trans('master.email') }}</label>
       								<input type="text" placeholder="user name or email address*">
       							</div>
       							<div class="btn-submit margin-15">
-      								<button class="btn-normal2" type="submit">register</button>
+      								<button class="btn-normal2" type="submit">{{ trans('master.register') }}</button>
       							</div>
-      							<h4 class="title-point">sign up today and you will be able to:</h4>
+      							<h4 class="title-point">{{ trans('master.point') }}</h4>
       							<ul class="check-points">
-      								<li><p>speed your way through the checkout</p></li>
-      								<li><p>track your orders easily</p></li>
-      								<li><p>keep a record of all your purchases</p></li>
+      								<li><p>{{ trans('master.point1') }}</p></li>
+      								<li><p>{{ trans('master.point2') }}</p></li>
+      								<li><p>{{ trans('master.point3') }}</p></li>
       							</ul>
   							</div>
   						</form>
@@ -222,7 +222,7 @@
 	        		<ul class="kf_connect">
                         <li class="github"><a target="_blank" href="https://github.com/mehmeteyupkatirci/"><i class="fa fa-github fa-5x"></i></a></li>
                     </ul>
-					<p><i aria-hidden="true" class="fa fa-copyright"></i>2018 MUSIC FOREST TEMPLATE Made by Mehmet Eyup Katirci</p>
+					<p><i aria-hidden="true" class="fa fa-copyright"></i>Made by Mehmet Eyup Katirci</p>
 	        	</div>
 	        </div>
 	    </div> 
