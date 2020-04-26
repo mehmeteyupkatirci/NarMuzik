@@ -25,7 +25,7 @@ class Albums extends Controller
     {
         $albums = Album::find($id);
         return view('/album/detail',compact('albums'));
-    }
+    }                                                      
 
     /**
      * Show the form for creating a new resource.
