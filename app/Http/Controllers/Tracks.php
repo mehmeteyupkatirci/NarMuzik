@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Album;
-use App\Artist;
+use App\Track;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-
-class Albums extends Controller
+class Tracks extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,13 +15,8 @@ class Albums extends Controller
     public function index()
     {
         //
-        $albums = Album::orderByRaw('RAND()')->take(8)->get();
-        return view('album/home', compact('albums'));
-    }
-    public function detail($id)
-    {
-        $albums = Album::find($id);
-        return view('/album/detail',compact('albums'));
+        $tracks = Track::paginate(10);
+        return view('track/home', compact('tracks'));
     }
 
     /**

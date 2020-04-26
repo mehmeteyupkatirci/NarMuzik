@@ -149,8 +149,7 @@
 													}
 												});
 											}
-										</script>
-									</li>		
+										</script></li>		
                                     <li><a id="search-btn" href="#"><div id="search-button"><i class="fa fa-search"></i></div></a></li>
                                     <li><a data-action="open" data-side="right" class="side_t kf_menu_button" href="#"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
                                 </ul>
