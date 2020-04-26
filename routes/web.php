@@ -34,6 +34,8 @@ Route::group(['middleware'=>['adjustLocale']],function(){
     Route::get('/album/detail/{id}','Albums@detail')->name('detail');
     
     Route::get('/track','Tracks@index');
+
+    Route::get('/track/detail/{id}','Tracks@index')->name('track_detail');
 });
 
 Route::group(['middleware'=>['auth']],function(){

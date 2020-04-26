@@ -13,10 +13,10 @@
                         <li class="list-header">
                             <div class="mp3-title"><h6>{{ trans('track-home.name') }}</h6></div>
                             <div class="tracks"><h6>{{ trans('track-home.genres') }}</h6></div>
-                            <div class="remixers"><h6>{{ trans('track-home.popularity') }}</h6></div>
-                            <div class="mp3-label"><h6>{{ trans('track-home.created_at') }}</h6></div>
-                            <div class="genre"><h6>{{ trans('track-home.updated_at') }}</h6></div>
-                            <div class="key"><h6></h6></div>
+                            <div class="remixers"><h6>{{ trans('track-home.album') }}</h6></div>
+                            <div class="mp3-label"><h6>{{ trans('track-home.popularity') }}</h6></div>
+                            <div class="genre"><h6>{{ trans('track-home.lenght') }}</h6></div>
+                            <div class="key"><h6>{{ trans('track-home.number') }}</h6></div>
                             <div class="released"><h6></h6></div>
                         </li>
                         <!--Mp3 List Thumb Start-->
@@ -35,11 +35,11 @@
                                         <h6><a href="{{route ('track_detail',$track->id)}}">{{$track->name}}</a></h6>
                                     </div>
                                 </div>
-                                <div class="tracks"><h6><b>{{$track->popularity}}</b></h6></div>
+                                <div class="tracks"><h6><b>{{$track->album->genres}}</b></h6></div>
                                 <div class="remixers"><h6><b>{{$track->album->name}}</b></h6></div>
-                                <div class="mp3-label"><h6>{{$track->album->popularity}}</h6></div>
-                                <div class="genre"><h6></h6></div>
-                                <div class="key"><h6></h6></div>
+                                <div class="mp3-label"><h6>{{$track->popularity}}</h6></div>
+                                <div class="genre"><h6>{{$track->duration_ms}}</h6></div>
+                                <div class="key"><h6>{{$track->disc_number}}</h6></div>
                                 <div class="released"><h6></h6></div>
                             </li>
                             
