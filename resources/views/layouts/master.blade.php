@@ -81,11 +81,24 @@
                             </div>
                         </div>
                         <div class="right-side">
-                            <div class="login-register">
-                                <span><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
-                                <a href="#" data-toggle="modal" data-target="#login-register1">{{ trans('master.login') }}</a>
-                                <a href="#" data-toggle="modal" data-target="#login-register1">{{ trans('master.register') }}</a>
-                            </div>
+						@guest
+						<div class="login-register">
+							<span><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+							<a href="{{ route('login') }}" data-toggle="modal" data-target="#login-register1">{{ trans('master.login') }}</a>
+							<a href="{{ route('register') }}" data-toggle="modal" data-target="#login-register1">{{ trans('master.register') }}</a>
+						</div>
+						@else
+						<div class="login-register">
+							<span><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+							{{ Auth::user()->name }}
+							<a href="{{ route('logout') }}" onclick="event.preventDefault();
+							document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+								@csrf
+							</form>
+						</div>
+                        @endguest
+                            
                             <div class="social-icons">
                                 <ul>
 									<li><a target="_blank" href="https://github.com/mehmeteyupkatirci/">
@@ -118,6 +131,26 @@
 	                        </div>
                             <div class="pull-right">
                                 <ul class="playlist_menu_bar">
+									<li class=" kf_menu_button"> 
+										<select id="languages" onChange="languageSelectChange()">
+											<option value="tr">Türkçe</option>
+											<option value="en">İngilizce</option>
+										</select>
+										<script>
+											function languageSelectChange(){
+												var value = $("#languages").val();
+												
+												$.ajax({
+													method:"POST",
+													data:"language="+value,
+													url:"/changeLanguage",
+													success:function(return_text){
+														alert(return_text);				
+													}
+												});
+											}
+										</script>
+									</li>		
                                     <li><a id="search-btn" href="#"><div id="search-button"><i class="fa fa-search"></i></div></a></li>
                                     <li><a data-action="open" data-side="right" class="side_t kf_menu_button" href="#"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
                                 </ul>

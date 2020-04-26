@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,15 +16,29 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
+
+Route::group(['middleware'=>['adjustLocale']],function(){
+    Route::get('/artists', 'Artists@index');
+
+    Route::get('/artists/artist_detail/{id}','Artists@artist_detail')->name('artist_detail');
+    
+    Route::get('/','Anasayfa@index');
+    
+    Route::get('/albums','Albums@index');
+    
+    Route::post('/changeLanguage',function(Request $request){
+
+        print_r($request->all());
+    });
+
+    Route::get('/album/detail/{id}','Albums@detail')->name('detail');
+});
+
+Route::group(['middleware'=>['auth']],function(){
+   
+    //playlist ve takip ve like işlemleri bu grup altında olacak
+});
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/artists', 'Artists@index');
 
-Route::get('/artists/artist_detail/{id}','Artists@artist_detail')->name('artist_detail');
-
-Route::get('/','Anasayfa@index');
-
-Route::get('/albums','Albums@index');
-
-Route::get('/album/detail/{id}','Albums@detail')->name('detail');
 ?>
