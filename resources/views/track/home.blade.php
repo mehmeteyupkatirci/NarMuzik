@@ -30,9 +30,9 @@
                                         </span>
                                     </div>
                                     <div class="text-overflow">
-                                        <a class="mp3-icon" href="{{route ('track_detail',$track->id)}}"><i class="icon-play-button"></i></a>
-                                        <a class="mp3-icon" href="{{route ('track_detail',$track->id)}}"><i class="icon-music-1"></i></a>
-                                        <h6><a href="{{route ('track_detail',$track->id)}}">{{$track->name}}</a></h6>
+                                        <a class="mp3-icon" href="{{ route ('detail',$track->album->id) }}"><i class="icon-play-button"></i></a>
+                                        <a class="mp3-icon" href="{{ route ('detail',$track->album->id) }}"><i class="icon-music-1"></i></a>
+                                        <h6><a href="{{ route ('detail',$track->album->id) }}">{{$track->name}}</a></h6>
                                     </div>
                                 </div>
                                 <div class="tracks"><h6><b>{{$track->album->genres}}</b></h6></div>

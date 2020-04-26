@@ -84,8 +84,8 @@
 						@guest
 						<div class="login-register">
 							<span><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
-							<a href="{{ route('login') }}" data-toggle="modal" data-target="#login-register1">{{ trans('master.login') }}</a>
-							<a href="{{ route('register') }}" data-toggle="modal" data-target="#login-register1">{{ trans('master.register') }}</a>
+							<a href="/login" >{{ trans('master.login') }}</a>
+							<a href="/register"  >{{ trans('master.register') }}</a>
 						</div>
 						@else
 						<div class="login-register">
@@ -117,7 +117,8 @@
                                 <ul>	
         							<li class="active"><a href="/">{{ trans('master.home') }}</a></li>
 									<li class="menu-item "><a href="/artists">{{ trans('master.artist') }}</a></li>
-									<li class="menu-item "><a href="/albums">{{ trans('master.albums') }}</a></li>					
+									<li class="menu-item "><a href="/albums">{{ trans('master.albums') }}</a></li>	
+									<li class="menu-item"><a href="/track">{{ trans('track-home.page') }}</a></li>				
 								</ul>
                             </nav>
                             <div id="kode-responsive-navigation" class="dl-menuwrapper">
@@ -179,6 +180,9 @@
 							</li>
 							<li>
                                 <a href="/albums">{{ trans('master.albums') }}</a>
+							</li>
+							<li>
+                                <a href="/albums">{{ trans('track-home.page') }}</a>
                             </li>
                         </ul>
                     </nav>
@@ -189,7 +193,7 @@
             
         </div>
 		<!-- Modal -->
-		<div id="login-register1" class="modal fade" role="dialog">
+		{{-- <div id="login-register1" class="modal fade" role="dialog">
 		  	<div class="modal-dialog">
 			    <!-- Modal content-->
 			    <div class="modal-content">
@@ -245,7 +249,7 @@
   					</div>
 			    </div>
 		  	</div>
-		</div>
+		</div> --}}
 		<div class="sidebars">
         	<div class="sidebar right">
 	           	<a href="#" class="side_t close_cross" data-action="close" data-side="right"><span></span></a>

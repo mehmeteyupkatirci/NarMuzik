@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Artist;
 use Illuminate\Http\Request;
+
 
 class HomeController extends Controller
 {
@@ -23,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $artists = Artist::orderBy('popularity','desc')->limit(3)->get();
+        return view('homepage',compact('artists'));
     }
 }
