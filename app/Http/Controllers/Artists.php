@@ -25,7 +25,6 @@ class Artists extends Controller
     
     public function artist_detail($id)
     {
-        
         $artist = Artist::with('albums')->find($id);
         return view('artist/detail',compact('artist'));
     }

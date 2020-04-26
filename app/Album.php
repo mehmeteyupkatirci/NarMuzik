@@ -11,9 +11,9 @@ class Album extends Model
     {
         return $this->belongsTo('App\Artist');
     }
-    public function track()
+    public function tracks()
     {
-        return $this->hasMany('App\Track');
+        return $this->hasMany(Track::class);
     }
     
     

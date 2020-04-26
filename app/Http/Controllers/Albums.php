@@ -23,8 +23,8 @@ class Albums extends Controller
     }
     public function detail($id)
     {
-        $albums = Album::find($id);
-        return view('/album/detail',compact('albums'));
+        $albums = Album::with('tracks')->find($id);
+        return view('album/detail',compact('albums'));
     }                                                      
 
     /**
