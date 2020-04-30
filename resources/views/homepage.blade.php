@@ -29,7 +29,7 @@
                             <h3>{{ trans('homepage.top') }}</h3>
                         </div>
                         <div class="row">
-                            <div class="col-md-8 col-sm-12 col-xs-12">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
                                 @if($artists)
                                     @foreach ($artists as $artist)
                                         <div class="kode_event">
@@ -43,34 +43,11 @@
                                     @endforeach
                                 @endif
                             </div>
-                            <div class="col-md-4 col-sm-12 col-xs-12">
-                                <div class="kode_jplayer open_player">
-                                    <ul class="kode_tabs"><li class="active"><a data-toggle="tab" href="#mlp">{{ trans('homepage.music') }}</a></li></ul>
-                                    <div class="tab-content">
-                                        <div class="widget widget-playlist tab-pane fade in active" id="mlp">
-                                            <div class="widget-player">
-                                                <div id="jplayer_jukeboxwidget"></div>
-                                                <div class="hide">
-                                                    <a href="media\1.mp3" title="Aenean - <span>Commodo ligula</span>" data-artist="Lucas Gonze" data-image="media/cover1.jpg" data-download="1" data-buy="https://www.freesound.org/people/lucasgonze/sounds/58970/">.MP3 file</a><br>
-                                                    <a href="media/2.mp3" title="Aenean - <span>Commodo ligula</span>" data-artist="Lucas Gonze" data-image="media/cover1.jpg" data-download="1" data-buy="https://www.freesound.org/people/lucasgonze/sounds/58970/">.MP3 file</a><br>
-                                                    <a href="media/3.mp3" title="Aenean - <span>Commodo ligula</span>" data-artist="Lucas Gonze" data-image="media/cover1.jpg" data-download="1" data-buy="https://www.freesound.org/people/lucasgonze/sounds/58970/">.MP3 file</a><br>
-                                                    <a href="media/4.mp3" title="Aenean - <span>Commodo ligula</span>" data-artist="Lucas Gonze" data-image="media/cover1.jpg" data-download="1" data-buy="https://www.freesound.org/people/lucasgonze/sounds/58970/">.MP3 file</a><br>
-                                                </div>    
-                                            </div>
-                                        </div>
-                                        <div class="widget widget-playlist tab-pane fade" id="plist">
-                                            <div class="widget-player">
-                                                 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </section>  
-            <!--Kode upcoming events ends-->
+           
         </div>
         
 @endsection

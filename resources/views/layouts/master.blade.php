@@ -140,7 +140,6 @@
 										<script>
 											function languageSelectChange(){
 												var value = $("#languages").val();
-												
 												$.ajax({
 													method:"POST",
 													data:"language="+value,
@@ -150,7 +149,8 @@
 													}
 												});
 											}
-										</script></li>		
+										</script>
+										</li>		
                                     <li><a id="search-btn" href="#"><div id="search-button"><i class="fa fa-search"></i></div></a></li>
                                     <li><a data-action="open" data-side="right" class="side_t kf_menu_button" href="#"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
                                 </ul>
@@ -192,64 +192,7 @@
             <!--Copy Right Wrap End-->
             
         </div>
-		<!-- Modal -->
-		{{-- <div id="login-register1" class="modal fade" role="dialog">
-		  	<div class="modal-dialog">
-			    <!-- Modal content-->
-			    <div class="modal-content">
-			    	<button type="button" class="close" data-dismiss="modal">&times;</button>
-			      	<div class="ms-login-form">
-  						<form>
-  							<div class="ms_width_off50">
-      							<div class="ms-heading2">
-      								<h3>{{ trans('master.sign') }}</h3>
-      								<p>{{ trans('master.welcome') }}</p>
-      							</div>
-      							<div class="input-felid">
-      								<label>{{ trans('master.username') }}</label>
-      								<input type="text" placeholder="user name or email address*">
-      							</div>
-      							<div class="input-felid">
-      								<label>{{ trans('master.password') }}</label>
-      								<input type="text" placeholder="password*">
-      							</div>
-      							<div class="pull-left">
-      								<input type="checkbox" name="remember" id="clik">
-      								<span class="box"></span>
-      								<label for="clik" class="ck-title">{{ trans('master.remember') }}</label>
-      							</div>
-      							<div class="pull-right">
-      								<a href="#" class="fpw">{{ trans('master.resetP') }}</a>
-      							</div>
-      							<div class="btn-submit">
-      								<button class="btn-normal2" type="submit">{{ trans('master.login') }}</button>
-      							</div>
-  							</div>
-  							<sup>Or</sup>
-  							<div class="ms_width_off50 bg-trans">
-      							<div class="ms-heading2">
-      								<h3>{{ trans('master.create') }}</h3>
-      								<p>{{ trans('master.trend') }}</p>
-      							</div>
-      							<div class="input-felid">
-      								<label>{{ trans('master.email') }}</label>
-      								<input type="text" placeholder="user name or email address*">
-      							</div>
-      							<div class="btn-submit margin-15">
-      								<button class="btn-normal2" type="submit">{{ trans('master.register') }}</button>
-      							</div>
-      							<h4 class="title-point">{{ trans('master.point') }}</h4>
-      							<ul class="check-points">
-      								<li><p>{{ trans('master.point1') }}</p></li>
-      								<li><p>{{ trans('master.point2') }}</p></li>
-      								<li><p>{{ trans('master.point3') }}</p></li>
-      							</ul>
-  							</div>
-  						</form>
-  					</div>
-			    </div>
-		  	</div>
-		</div> --}}
+		
 		<div class="sidebars">
         	<div class="sidebar right">
 	           	<a href="#" class="side_t close_cross" data-action="close" data-side="right"><span></span></a>
