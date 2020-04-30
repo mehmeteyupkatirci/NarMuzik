@@ -1,4 +1,8 @@
 @extends('layouts.master')
 @section('content')
-    <h1>{{$user->name}}</h1>
+<div class="container">
+    <div class="row">
+        <h1>{{$user->name}}</h1>
+    </div>
+</div>
 @endsection

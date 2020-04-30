@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Album;
 use App\Artist;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Http\Requests;
+use App\Track;
 
 class Anasayfa extends Controller
 {
@@ -20,7 +22,9 @@ class Anasayfa extends Controller
         // app()->setLocale('en');
         
         $artists = Artist::orderBy('popularity','desc')->limit(3)->get();
-        return view('homepage',compact('artists'));
+        $tracks = Track::orderBy('popularity','desc')->limit(3)->get();
+        $albums = Album::orderBy('popularity','desc')->limit(3)->get();
+        return view('homepage',compact('artists','tracks','albums'));
     }
 
     /**

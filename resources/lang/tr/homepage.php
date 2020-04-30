@@ -5,7 +5,7 @@ return [
     'banner' => 'NarMüzik yeni müzik keşfetme platformu',
     'buton1' => 'Şarkıcılar',
     'button2'=> 'Albümler',
-    'top' => 'En popüler 3 Şarkıcı',
+    'top' => 'Haftanın En Popülerleri',
     'music' => 'Müzik',
     'show' => 'Daha Fazla'
 ];

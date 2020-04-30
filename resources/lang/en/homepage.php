@@ -5,7 +5,7 @@ return [
     'banner' => 'NarMusic new music discovery platform',
     'buton1' => 'Artists',
     'button2'=> 'Albums',
-    'top' => 'Top 3 most popular artists',
+    'top' => 'Most popular of the week',
     'music' => 'Music',
     'show' => 'Show More'
 ];
