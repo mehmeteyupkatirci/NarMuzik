@@ -83,13 +83,12 @@
                         <div class="right-side">
 						@guest
 						<div class="login-register">
-							<span><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
 							<a href="/login" >{{ trans('master.login') }}</a>
 							<a href="/register"  >{{ trans('master.register') }}</a>
 						</div>
 						@else
 						<div class="login-register">
-							<span><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+                        <a href="{{ route('user.profile', Auth::user()->id)}}"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
 							{{ Auth::user()->name }}
 							<a href="{{ route('logout') }}" onclick="event.preventDefault();
 							document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>

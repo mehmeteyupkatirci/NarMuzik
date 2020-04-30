@@ -44,5 +44,6 @@ Route::group(['middleware'=>['auth']],function(){
 });
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/user/{id}','UserController@profile')->name('user.profile');
 
 ?>
