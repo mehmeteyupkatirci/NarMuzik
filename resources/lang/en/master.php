@@ -13,6 +13,7 @@ return[
     'username' => 'username or email address',
     'password'=> 'Password',
     'remember' => 'Remember Me',
+    'profile' => 'My Profile',
     'resetP'=> 'forgotten password?',
     'create'=>'create new account',
     'trend' => 'create your very own trend account',

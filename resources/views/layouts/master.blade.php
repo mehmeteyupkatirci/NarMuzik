@@ -113,12 +113,22 @@
                     <div class="header-2st-row">
                         <div class="fst-navigation">
                             <nav class="navigation-1">
+                                @guest
                                 <ul>	
         							<li class="active"><a href="/">{{ trans('master.home') }}</a></li>
 									<li class="menu-item "><a href="/artists">{{ trans('master.artist') }}</a></li>
 									<li class="menu-item "><a href="/albums">{{ trans('master.albums') }}</a></li>	
 									<li class="menu-item"><a href="/track">{{ trans('track-home.page') }}</a></li>				
-								</ul>
+                                </ul>
+                                @else
+                                <ul>	
+        							<li class="active"><a href="/">{{ trans('master.home') }}</a></li>
+									<li class="menu-item "><a href="/artists">{{ trans('master.artist') }}</a></li>
+                                    <li class="menu-item "><a href="/albums">{{ trans('master.albums') }}</a></li>
+                                    <li class="menu-item"><a href="/track">{{ trans('track-home.page') }}</a></li>	
+                                    <li class="menu-item"><a href="{{ route('user.profile', Auth::user()->id)}}">{{ trans('master.profile') }}</a></li>			
+                                </ul>
+                                @endguest
                             </nav>
                             <div id="kode-responsive-navigation" class="dl-menuwrapper">
 	                            <button class="dl-trigger"></button>

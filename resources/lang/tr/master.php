@@ -12,6 +12,7 @@ return[
     'welcome'=>'Tekrar Hoşgeldin! Hesabınıza giriş yapın',
     'username' => 'Kullanıcı adı veya e-mail adresi',
     'password'=> 'Şifre',
+    'profile' => 'Profilim',
     'remember' => 'beni Hatırla',
     'resetP'=> 'Şifrenizi mi unuttunuz?',
     'create'=>'Yeni hesap oluştur',
