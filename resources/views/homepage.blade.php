@@ -22,8 +22,8 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4 col-sm-12 col-xs-12">
-                                @if($tracks ?? '')
-                                    @foreach ($tracks ?? '' as $track)
+                                @if($tracks)
+                                    @foreach ($tracks as $track)
                                         <div class="kode_event">
                                         <div class="kode_event_date"><h3>{{$track->popularity}}<small>%100</small></h3></div>
                                             <div class="kode_event_content">
@@ -36,8 +36,8 @@
                                 @endif
                             </div>
                             <div class="col-md-4 col-sm-12 col-xs-12">
-                                @if($albums ?? '')
-                                    @foreach ($albums ?? '' as $album)
+                                @if($albums)
+                                    @foreach ($albums as $album)
                                         <div class="kode_event">
                                         <div class="kode_event_date"><h3>{{$album->popularity}}<small>%100</small></h3></div>
                                             <div class="kode_event_content">

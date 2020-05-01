@@ -40,7 +40,7 @@
         <link href="\style.css" rel="stylesheet">
         <!-- Color CSS -->
         <link href="\css\color.css" rel="stylesheet">
-        
+        <link href="\css\user_profile.css" rel="stylesheet">
         <!-- Responsive CSS -->
         <link href="\css\responsive.css" rel="stylesheet">
     </head>
