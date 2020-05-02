@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Playlist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class Playlists extends Controller
 {
@@ -14,9 +16,9 @@ class Playlists extends Controller
      */
     public function index()
     {
-        //
+        $playlist = Db::select('select * from playlists');
+        return view('playlist.home',['playlists' => $playlist]);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -24,7 +26,7 @@ class Playlists extends Controller
      */
     public function create()
     {
-        //
+        return view('playlist.create');
     }
 
     /**
@@ -35,7 +37,21 @@ class Playlists extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->get('name');
+        $description = $request->get('description');
+        $user =  Auth::user()->id;
+        $public = $request->get('public');
+        $playlists = DB::insert('insert into playlists (user_id,name, description, public) value(?,?,?,?)',[$user,$name, $description,$public]);
+        if ($playlists) 
+        {
+            $red = redirect('playlist')->with('success','Data has been added');
+        }
+        else
+        {
+            $red = redirect('playlist/edit')->with('danger','Please try again');
+        }
+        return $red;
+
     }
 
     /**
@@ -55,9 +71,10 @@ class Playlists extends Controller
      * @param  \App\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Playlist $playlist)
+    public function edit($id)
     {
-        //
+        $playlists = DB::select('select * from playlists where id=?',[$id]);
+        return view('playlist.edit',['playlist'=> $playlists]);
     }
 
     /**
@@ -67,9 +84,21 @@ class Playlists extends Controller
      * @param  \App\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Playlist $playlist)
+    public function update(Request $request, $id)
     {
-        //
+        $name = $request->get('name');
+        $description = $request->get('description');
+        $public = $request->get('public');
+        $playlist = DB::update('update playlists set name = ? , description=?, public =? where id=?',[$name, $description, $public, $id]);
+        if ($playlist) 
+        {
+            $red = redirect('playlist')->with('success','Data has been added');
+        }
+        else
+        {
+            $red = redirect('playlist')->with('danger','Please try again');
+        }
+        return $red;
     }
 
     /**
@@ -78,8 +107,10 @@ class Playlists extends Controller
      * @param  \App\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Playlist $playlist)
+    public function destroy($id)
     {
-        //
+        $playlist = DB::delete('delete from playlists where id = ?',[$id]);
+        $red = redirect('playlist');
+        return $red;
     }
 }

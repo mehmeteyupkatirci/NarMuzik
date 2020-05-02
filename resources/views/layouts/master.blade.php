@@ -218,15 +218,15 @@
                         <li class="nav-item">
                           <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
                         </li>
-                      </ul>
+                    </ul>
                       <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="container">
                                 <h2>Create Playlist</h2>
-                                <form action="/action_page.php">
+                                <form action="{{ route('playlist.create', Auth::user()->id)}}" method="POST">
                                   <div class="form-group">
                                     <label for="email">Playlist Name</label>
-                                    <input type="email" class="form-control" id="textbox" placeholder="Enter Playlist Name" name="email">
+                                    <input type="textbox" class="form-control" id="textbox" placeholder="Enter Playlist Name" name="email">
                                   </div>
                                   <div class="form-group">
                                     <label for="pwd">Description</label>
@@ -243,8 +243,6 @@
                         <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
                       </div>
                     @endauth
-                      
-	        		<a href="#" class="kode_logo"><img src="images\footer-logo.png" alt=""></a>
 	        		<ul class="kf_connect">
                         <li class="github"><a target="_blank" href="https://github.com/mehmeteyupkatirci/"><i class="fa fa-github fa-5x"></i></a></li>
                     </ul>

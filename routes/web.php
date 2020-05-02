@@ -46,4 +46,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/user/{id}','UserController@profile')->name('user.profile');
 
+Route::get('/playlist','Playlists@index');
+
+Route::resource('playlist','Playlists');
 ?>
