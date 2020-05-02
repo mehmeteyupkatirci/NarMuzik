@@ -206,6 +206,44 @@
         	<div class="sidebar right">
 	           	<a href="#" class="side_t close_cross" data-action="close" data-side="right"><span></span></a>
 	        	<div class="kode_sidebar_right">
+                    @auth
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                              <button type="button" class="btn btn-success"><i class="fa fa-plus"></i>  PLAYLİST</button></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="container">
+                                <h2>Create Playlist</h2>
+                                <form action="/action_page.php">
+                                  <div class="form-group">
+                                    <label for="email">Playlist Name</label>
+                                    <input type="email" class="form-control" id="textbox" placeholder="Enter Playlist Name" name="email">
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="pwd">Description</label>
+                                    <input type="textbox" class="form-control" id="pwd" placeholder="Enter Description" name="pwd">
+                                  </div>
+                                  <div class="checkbox">
+                                    <label><input type="checkbox" name="remember"> Public</label>
+                                  </div>
+                                  <button type="submit" class="btn btn-default">Submit</button>
+                                </form>
+                              </div>
+                        </div>
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+                        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+                      </div>
+                    @endauth
+                      
 	        		<a href="#" class="kode_logo"><img src="images\footer-logo.png" alt=""></a>
 	        		<ul class="kf_connect">
                         <li class="github"><a target="_blank" href="https://github.com/mehmeteyupkatirci/"><i class="fa fa-github fa-5x"></i></a></li>
