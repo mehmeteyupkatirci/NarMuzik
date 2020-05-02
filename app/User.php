@@ -10,6 +10,11 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function playlists()
+    {
+        return $this->hasMany(Playlist::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
