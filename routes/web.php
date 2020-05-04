@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,8 +27,8 @@ Route::group(['middleware'=>['adjustLocale']],function(){
     Route::get('/albums','Albums@index');
     
     Route::post('/changeLanguage',function(Request $request){
-
-        print_r($request->all());
+        $language = $request->input('language');
+        session(['language'=>$language]);
     });
 
     Route::get('/album/detail/{id}','Albums@detail')->name('detail');
@@ -39,8 +39,7 @@ Route::group(['middleware'=>['adjustLocale']],function(){
 });
 
 Route::group(['middleware'=>['auth']],function(){
-   
-    //playlist ve takip ve like işlemleri bu grup altında olacak
+   Route::get('/playlist/create','Playlists@create');
 });
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -15,7 +15,12 @@ class AdjustLocale
      */
     public function handle($request, Closure $next)
     {
-        app()->setLocale("en");
+
+        $language = 'tr';
+        if (session()->exists('language')) {
+           $language=session('language');
+        }
+        app()->setLocale($language);
         return $next($request);
     }
 }

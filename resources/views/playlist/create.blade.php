@@ -13,11 +13,11 @@
             @csrf
             <div class="form-group">
                 <label >Name</label>
-                <input class="form-control" type="text" name="name" id="" placeholder="Name">
+                <input class="form-control" type="text" name="name"  placeholder="Name">
             </div>
             <div class="form-group">
                 <label>Description</label>
-                <textarea class="form-control" type="text" name="description" id="" placeholder="Description"></textarea>
+                <textarea class="form-control" type="text" name="description" placeholder="Description"></textarea>
             </div>
             <div class="form-check">
                 <input class="form-check-input" name="public" type="checkbox" value="1" id="defaultCheck1">
@@ -26,6 +26,7 @@
                 </label>
               </div>
             <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
         </div>
     </div>
 </div>

@@ -126,7 +126,12 @@
 									<li class="menu-item "><a href="/artists">{{ trans('master.artist') }}</a></li>
                                     <li class="menu-item "><a href="/albums">{{ trans('master.albums') }}</a></li>
                                     <li class="menu-item"><a href="/track">{{ trans('track-home.page') }}</a></li>	
-                                    <li class="menu-item"><a href="{{ route('user.profile', Auth::user()->id)}}">{{ trans('master.profile') }}</a></li>			
+                                    <li class="menu-item"><a href="{{ route('user.profile', Auth::user()->id)}}">{{ trans('master.profile') }}</a>
+                                        <ul class="sub-menu children">
+                                            <li><a href="/playlist">Playlist</a></li>
+                                         </ul>
+                                    </li>		
+                                    
                                 </ul>
                                 @endguest
                             </nav>
@@ -144,8 +149,8 @@
 									<li class=" kf_menu_button"> 
 										<select id="languages" onChange="languageSelectChange()">
 											<option value="tr">Türkçe</option>
-											<option value="en">İngilizce</option>
-										</select>
+                                            <option value="en">İngilizce</option>                                            
+                                        </select>
 										<script>
 											function languageSelectChange(){
 												var value = $("#languages").val();
@@ -154,7 +159,7 @@
 													data:"language="+value,
 													url:"/changeLanguage",
 													success:function(return_text){
-														alert(return_text);				
+													    location.reload();
 													}
 												});
 											}
@@ -180,6 +185,7 @@
                     <p class="pull-left">© 2020 All Right Reserved. <a target="_blank" href="https://github.com/mehmeteyupkatirci/">{{ trans('master.title') }}</a></p>
                     <!--Navigation Start-->
                     <nav class="navigation pull-right">
+                    
                         <ul>
                             <li class="active">
                                 <a href="/">{{ trans('master.home') }}</a>
@@ -212,30 +218,31 @@
                           <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
                               <button type="button" class="btn btn-success"><i class="fa fa-plus"></i>  PLAYLİST</button></a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                           <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-                        </li>
+                        </li> --}}
                     </ul>
                       <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="container">
                                 <h2>Create Playlist</h2>
-                                <form action="{{ route('playlist.create', Auth::user()->id)}}" method="POST">
+                                <form action="{{ action('Playlists@store')}}" method="POST">
+                                    @csrf
                                   <div class="form-group">
                                     <label for="email">Playlist Name</label>
-                                    <input type="textbox" class="form-control" id="textbox" placeholder="Enter Playlist Name" name="email">
+                                    <input type="textbox" class="form-control" id="textbox" placeholder="Enter Playlist Name" name="name">
                                   </div>
                                   <div class="form-group">
                                     <label for="pwd">Description</label>
-                                    <input type="textbox" class="form-control" id="pwd" placeholder="Enter Description" name="pwd">
+                                    <input type="textbox" class="form-control" id="pwd" placeholder="Enter Description" name="description">
                                   </div>
                                   <div class="checkbox">
-                                    <label><input type="checkbox" name="remember"> Public</label>
+                                    <label><input type="checkbox" name="public" value="1">  Is the playlist public?</label>
                                   </div>
-                                  <button type="submit" class="btn btn-default">Submit</button>
+                                  <button class="btn btn-success" type="submit">Submit</button>
                                 </form>
                               </div>
                         </div>
@@ -269,7 +276,8 @@
 	   <!-- Player JavaScript -->
 	   <script type="text/javascript" src="\js\jplayer\jplayer.jukebox.js"></script>
 	   <script type="text/javascript" src="\js\jplayer\jquery.jplayer.min.js"></script>
-	   <script type="text/javascript" src="\js\jplayer\jplayer.playlist.min.js"></script>
+       <script type="text/javascript" src="\js\jplayer\jplayer.playlist.min.js"></script>
+       <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	   <!--Dl Menu Script-->
 	   <script src="\js\dl-menu\modernizr.custom.js"></script>
 	   <script src="\js\dl-menu\jquery.dlmenu.js"></script>
@@ -302,7 +310,19 @@
 	   <!-- waypoint-->
 	   <script src="\js\waypoint.js"></script>
 	   <!--Custom JavaScript-->
-	   <script src="\js\custom.js"></script>
+       <script src="\js\custom.js"></script>
+       
+       <script>
+           $(document).ready(function(){
+
+                $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':"{{ csrf_token()}}"
+                    }
+                });
+
+           });
+       </script>
 
   </body>
 </html>

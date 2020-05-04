@@ -8,10 +8,11 @@
     <div class="container">
 <div class="row">
     <div class="col-md-6">
-        <h1>H1 kısmı</h1>
+        <h1>Create Playlist</h1>
     </div>
     <div class="col-md-6 text-right">
-    <a href="{{action ('Playlists@create')}}" class="btn btn-primary">Add Data</a>
+    <a href="{{action ('Playlists@create')}}" class="btn btn-primary"><i class="fa fa-plus"></i>  ADD</a>
+    
     </div>
 
 <table class="table table-bordered">
@@ -31,7 +32,7 @@
                <td>{{$playlist->description}}</td>
                <td>
                 <form action="{{ action('Playlists@destroy', $playlist->id)}}" method="POST">
-                    @csrf
+                @csrf
                 @method('DELETE')
                 <a href="{{ action('Playlists@show', $playlist->id)}}" class="btn btn-info">SHOW</a>
                 <a href="{{ action('Playlists@edit', $playlist->id)}}" class="btn btn-warning">EDIT</a>

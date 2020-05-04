@@ -41,7 +41,7 @@ class Playlists extends Controller
         $description = $request->get('description');
         $user =  Auth::user()->id;
         $public = $request->get('public');
-        $playlists = DB::insert('insert into playlists (user_id,name, description, public) value(?,?,?,?)',[$user,$name, $description,$public]);
+        $playlists = DB::insert('insert into playlists (user_id, name, description, public) value(?,?,?,?)',[$user, $name, $description, $public]);
         if ($playlists) 
         {
             $red = redirect('playlist')->with('success','Data has been added');
