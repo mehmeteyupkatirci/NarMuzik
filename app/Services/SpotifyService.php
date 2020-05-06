@@ -134,23 +134,6 @@ class SpotifyService
             dd($e->getMessage());
         }
     }
-    public function artistTop($artistId, $options = [])
-    {
-        $request = request();
-
-        if (!$request->session()->has('access_token')) {
-            return redirect()->to('spotify/login');
-        }
-
-        $api = new SpotifyWebAPI();
-        $api->setAccessToken($request->session()->get('access_token'));
-
-        try {
-            return $api->getArtistTopTracks($artistId,$options = []);
-        } catch (\Exception $e) {
-            dd($e->getMessage());
-        }
-    }
     //ARTIST İSLEMLERİ SONU--------------------------------------------------
     //ALBUM İSLEMLERİ------------------------------------------------------
     public function album($albumId)

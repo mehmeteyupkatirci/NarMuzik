@@ -20,7 +20,14 @@ Route::get('spotify/login', 'SpotifyController@login');
 Route::get('spotify/me', 'SpotifyController@me');
 Route::get('spotify/search', 'SpotifyController@search');
 Route::get('spotify/artist/{id}', 'SpotifyController@artist');
-
+Route::get('spotify/artist/{id}/related', 'SpotifyController@artistRelated');
+Route::get('spotify/artists/{id}', 'SpotifyController@artists');
+Route::get('spotify/artist/albums/{id}', 'SpotifyController@artistAlbums');
+Route::get('spotify/album/{id}', 'SpotifyController@album');
+Route::get('spotify/albums/{id}', 'SpotifyController@albums');
+Route::get('spotify/album/{id}/tracks', 'SpotifyController@albumTracks');
+Route::get('spotify/track/{id}', 'SpotifyController@track');
+Route::get('spotify/tracks/{id}', 'SpotifyController@tracks');
 
 Route::group(['middleware'=>['adjustLocale']],function(){
     Route::get('/artists', 'Artists@index');
