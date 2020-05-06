@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
+Route::get('spotify/login', 'SpotifyController@login');
+Route::get('spotify/me', 'SpotifyController@me');
+Route::get('spotify/search', 'SpotifyController@search');
+Route::get('spotify/artist/{id}', 'SpotifyController@artist');
+
 
 Route::group(['middleware'=>['adjustLocale']],function(){
     Route::get('/artists', 'Artists@index');
