@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Facades\File;
 use SpotifyWebAPI\{Session, SpotifyWebAPI};
 
 class SpotifyService
@@ -16,7 +17,7 @@ class SpotifyService
 
         if (isset($_GET['code'])) {
             $session->requestAccessToken($_GET['code']);
-
+            File::put(storage_path('access_token.txt'), $session->getAccessToken());
             return session(['access_token' => $session->getAccessToken()]);
         } else {
             $options = [
@@ -29,18 +30,37 @@ class SpotifyService
             die();
         }
     }
+    
+    private function getAPiClient(){
+        
+        if(app()->runningInConsole()){
+           if(! File::exists(storage_path('access_token.txt'))){
+               dd('Tarayıcıdan login ol');
+           }else{
+            $api = new SpotifyWebAPI();
+            $api->setAccessToken(File::get(storage_path('access_token.txt')));
+           }
+        }else{
+            $request = request();
+            if (!$request->session()->has('access_token')) {
+                return $this->login();
+            }
+    
+            $api = new SpotifyWebAPI();
+            $api->setAccessToken($request->session()->get('access_token'));
+        }
+        return $api;
+    }
+
+    private function logout(){
+        if(File::exists(storage_path('access_token.txt'))){
+            File::delete(storage_path('access_token.txt'));
+        }
+    }
 
     public function me()
     {
-        $request = request();
-
-        if (!$request->session()->has('access_token')) {
-            return redirect()->to('spotify/login');
-        }
-
-        $api = new SpotifyWebAPI();
-        $api->setAccessToken($request->session()->get('access_token'));
-
+        $api = $this->getAPiClient();
         try {
             return $api->me();
         } catch (\Exception $e) {
@@ -50,15 +70,7 @@ class SpotifyService
 
     public function search($query, $type = 'artist', $options  = [])
     {
-        $request = request();
-
-        if (!$request->session()->has('access_token')) {
-            return redirect()->to('spotify/login');
-        }
-
-        $api = new SpotifyWebAPI();
-        $api->setAccessToken($request->session()->get('access_token'));
-
+        $api = $this->getAPiClient();
         try {
             return $api->search($query, $type = 'artist', $options = []);
         } catch (\Exception $e) {
