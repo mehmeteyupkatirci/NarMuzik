@@ -22,6 +22,7 @@ class CreateTracksTable extends Migration
             $table->string('duration_ms');
             $table->string('preview_url');
             $table->integer('popularity');
+            $table->string('images');
             $table->timestamps();
         });
         Schema::table('tracks', function($table){

@@ -19,6 +19,7 @@ class CreateArtistsTable extends Migration
             $table->string('name');
             $table->string('genres');
             $table->integer('popularity');
+            $table->string('images');
             $table->timestamps();
         });
     }

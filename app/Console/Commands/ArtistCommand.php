@@ -6,7 +6,7 @@ use App\Artist;
 use App\Services\SpotifyService;
 use Illuminate\Console\Command;
 
-class ArtisantCommand extends Command
+class ArtistCommand extends Command
 {
     /**
      * The name and signature of the console command.
@@ -20,7 +20,7 @@ class ArtisantCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Artist spot id çeker';
+    protected $description = 'Artist in tüm verilerini çeker';
     protected $service;
     /**
      * Create a new command instance.
@@ -44,6 +44,8 @@ class ArtisantCommand extends Command
         foreach ($dbArtists as  $artist) {
             $result = $this->service->search($artist->name);
             $artist->spot_id = $result->artists->items[0]->id;
+            $artist->popularity = $result->artists->items[0]->popularity;
+            $artist->images = $result->artists->items[0]->images[0]->url;
             $artist->save();
             $this->line($artist->name.' spotify\'dan idsi getirildi. ');
         }

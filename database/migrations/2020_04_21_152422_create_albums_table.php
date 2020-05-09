@@ -23,6 +23,7 @@ class CreateAlbumsTable extends Migration
             $table->string('genres');
             $table->integer('popularity');
             $table->timestamp('release_date');
+            $table->string('images');
             $table->timestamps();
         });
         Schema::table('albums', function($table){
