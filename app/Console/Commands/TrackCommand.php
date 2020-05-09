@@ -41,12 +41,16 @@ class TrackCommand extends Command
      */
     public function handle()
     {
-        $dbArtists = Track::query()->whereNull('spot_id')->limit(3)->get();
-        foreach ($dbArtists as  $artist) {
-            $result = $this->service->search($artist->name);
-            $artist->spot_id = $result->artists->items[0]->id;
-            $artist->save();
-            $this->line($artist->name.' spotify\'dan idsi getirildi. ');
+        $dbTracks = Track::query()->whereNull('spot_id')->limit(3)->get();
+        foreach ($dbTracks as  $track) {
+            $result = $this->service->search($track->name,'track');
+            $track->spot_id = $result->tracks->items[0]->id;
+            $track->preview_url = $result->tracks->items[0]->preview_url;
+            $track->disc_number = $result->tracks->items[0]->track_number;
+            $track->duration_ms = $result->tracks->items[0]->duration_ms;
+            $track->popularity = $result->tracks->items[0]->popularity;
+            $track->save();
+            $this->line($track->name.' spotify\'dan idsi getirildi. ');
         }
         $this->info('Tamamlandı');
     }
