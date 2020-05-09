@@ -15,6 +15,6 @@ class Album extends Model
     {
         return $this->hasMany(Track::class);
     }
-    
+    protected $fillable = ['name', 'artist_id' , 'album_type_id', 'spot_id'];
     
 }

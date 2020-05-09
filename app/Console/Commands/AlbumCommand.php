@@ -20,7 +20,7 @@ class AlbumCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Albumün tüm verilerini çeker ';
     protected $service;
     /**
      * Create a new command instance.
@@ -43,8 +43,8 @@ class AlbumCommand extends Command
         $dbAlbums = Album::query()->whereNull('spot_id')->limit(3)->get();
         foreach ($dbAlbums as  $album) {
             $result = $this->service->search($album->name,'album');
-            $album->spot_id = $result->albums->items[0]->id;
             dd($result);
+            $album->spot_id = $result->album->items[0]->id;
             $album->save();
             $this->line($album->name.' spotify\'dan idsi getirildi. ');
         }

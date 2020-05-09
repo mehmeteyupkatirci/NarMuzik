@@ -20,7 +20,7 @@ class ArtistCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Artist in tüm verilerini çeker';
+    protected $description = 'Artistin tüm verilerini çeker';
     protected $service;
     /**
      * Create a new command instance.
@@ -40,10 +40,11 @@ class ArtistCommand extends Command
      */
     public function handle()
     {
-        $dbArtists = Artist::query()->whereNull('spot_id')->limit(3)->get();
+        $dbArtists = Artist::query()->whereNull('popularity')->limit(100)->get();
         foreach ($dbArtists as  $artist) {
-            $result = $this->service->search($artist->name);
+            $result = $this->service->artist($artist->spot_id);
             $artist->spot_id = $result->artists->items[0]->id;
+            $artist->genres = $result->artists->items[0]->genres[0];
             $artist->popularity = $result->artists->items[0]->popularity;
             $artist->images = $result->artists->items[0]->images[0]->url;
             $artist->save();

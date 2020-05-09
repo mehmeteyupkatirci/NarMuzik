@@ -80,15 +80,7 @@ class SpotifyService
     //ARTIST İslemleri---------------------------------------------------------
     public function artist($artistId)
     {
-        $request = request();
-
-        if (!$request->session()->has('access_token')) {
-            return redirect()->to('spotify/login');
-        }
-
-        $api = new SpotifyWebAPI();
-        $api->setAccessToken($request->session()->get('access_token'));
-
+        $api = $this->getAPiClient();
         try {
             return $api->getArtist($artistId);
         } catch (\Exception $e) {
@@ -114,15 +106,8 @@ class SpotifyService
     }
     public function artistAlbums($artistId)
     {
-        $request = request();
-
-        if (!$request->session()->has('access_token')) {
-            return redirect()->to('spotify/login');
-        }
-
-        $api = new SpotifyWebAPI();
-        $api->setAccessToken($request->session()->get('access_token'));
-
+       
+        $api = $this->getAPiClient();
         try {
             return $api->getArtistAlbums($artistId);
         } catch (\Exception $e) {
@@ -131,15 +116,7 @@ class SpotifyService
     }
     public function artistRelated($artistId)
     {
-        $request = request();
-
-        if (!$request->session()->has('access_token')) {
-            return redirect()->to('spotify/login');
-        }
-
-        $api = new SpotifyWebAPI();
-        $api->setAccessToken($request->session()->get('access_token'));
-
+        $api = $this->getAPiClient();
         try {
             return $api->getArtistRelatedArtists($artistId);
         } catch (\Exception $e) {
