@@ -18,10 +18,10 @@ class CreateTracksTable extends Migration
             $table->string('spot_id');
             $table->bigInteger('album_id')->unsigned();
             $table->string('name');
-            $table->string('disc_number');
-            $table->string('duration_ms');
-            $table->string('preview_url');
-            $table->integer('popularity');
+            $table->string('disc_number')->nullable();
+            $table->string('duration_ms')->nullable();
+            $table->string('preview_url')->nullable();
+            $table->integer('popularity')->nullable();
             $table->string('images');
             $table->timestamps();
         });

@@ -19,11 +19,12 @@ class CreateAlbumsTable extends Migration
             $table->bigInteger('artist_id')->unsigned();
             $table->bigInteger('album_type_id')->unsigned();
             $table->string('name');
-            $table->string('copytrights');
-            $table->string('genres');
-            $table->integer('popularity');
-            $table->timestamp('release_date');
-            $table->string('images');
+            $table->string('copytrights')->nullable();
+            $table->string('genres')->nullable();
+            $table->integer('popularity')->nullable();
+            $table->timestamp('release_date')->nullable();
+            $table->string('images')->nullable();
+            $table->string('checked')->nullable();
             $table->timestamps();
         });
         Schema::table('albums', function($table){
