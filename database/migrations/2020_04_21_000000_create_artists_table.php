@@ -15,7 +15,7 @@ class CreateArtistsTable extends Migration
     {
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('spot_id');
+            $table->string('spot_id');
             $table->string('name');
             $table->string('genres');
             $table->integer('popularity');

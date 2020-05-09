@@ -15,7 +15,7 @@ class CreateTracksTable extends Migration
     {
         Schema::create('tracks', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('spot_id')->unsigned();
+            $table->string('spot_id');
             $table->bigInteger('album_id')->unsigned();
             $table->string('name');
             $table->string('disc_number');

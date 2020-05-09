@@ -2,25 +2,25 @@
 
 namespace App\Console\Commands;
 
-use App\Artist;
+use App\Album;
 use App\Services\SpotifyService;
 use Illuminate\Console\Command;
 
-class ArtisantCommand extends Command
+class AlbumCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'artist:get-id-spot';
+    protected $signature = 'album:get_spot_id';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Artist spot id çeker';
+    protected $description = 'Command description';
     protected $service;
     /**
      * Create a new command instance.
@@ -40,7 +40,7 @@ class ArtisantCommand extends Command
      */
     public function handle()
     {
-        $dbArtists = Artist::query()->whereNull('spot_id')->limit(3)->get();
+        $dbArtists = Album::query()->whereNull('spot_id')->limit(3)->get();
         foreach ($dbArtists as  $artist) {
             $result = $this->service->search($artist->name);
             $artist->spot_id = $result->artists->items[0]->id;
