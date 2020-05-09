@@ -5,7 +5,7 @@
     <div class="container">
         <div class="artist-banner">
             <div class="artist-banner-thumb">
-                <figure><img src="\extra-images\kode-event1.jpg" alt="KODEFOREST"></figure>
+                <figure><img src="{{$artist->images}}" alt="KODEFOREST"></figure>
                 <div class="text-overflow">
                     <h5>{{ $artist->name }}</h5>
                     <a class="btn-1 theme-bg" href="#"><i class="fa fa-volume-up"></i>{{ trans('artist-detail.play') }}</a>
