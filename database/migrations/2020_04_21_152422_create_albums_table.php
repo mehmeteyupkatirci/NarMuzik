@@ -22,7 +22,7 @@ class CreateAlbumsTable extends Migration
             $table->string('copytrights')->nullable();
             $table->string('genres')->nullable();
             $table->integer('popularity')->nullable();
-            $table->timestamp('release_date')->nullable();
+            $table->string('release_date')->nullable();
             $table->string('images')->nullable();
             $table->string('checked')->nullable();
             $table->timestamps();

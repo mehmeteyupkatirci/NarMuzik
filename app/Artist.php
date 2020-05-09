@@ -12,4 +12,5 @@ class Artist extends Model
     {
         return $this->hasMany(Album::class);
     }
+    protected $fillable = ['name', 'spot_id'];
 }

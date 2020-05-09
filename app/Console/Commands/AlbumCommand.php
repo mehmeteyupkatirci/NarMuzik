@@ -13,7 +13,7 @@ class AlbumCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'album:get_spot_id';
+    protected $signature = 'album:get_spot_id {spot_id} {--artist_id=}';
 
     /**
      * The console command description.
@@ -40,14 +40,42 @@ class AlbumCommand extends Command
      */
     public function handle()
     {
-        $dbAlbums = Album::query()->whereNull('spot_id')->limit(3)->get();
-        foreach ($dbAlbums as  $album) {
-            $result = $this->service->search($album->name,'album');
-            dd($result);
-            $album->spot_id = $result->album->items[0]->id;
-            $album->save();
-            $this->line($album->name.' spotify\'dan idsi getirildi. ');
+        if ($this->argument('spot_id') && $this->option('artist_id')) {
+            $this->createAlbum($this->argument('spot_id'), $this->option('artist_id'));
+        } else {
+            $this->other();
         }
+
         $this->info('Tamamlandı');
+    }
+
+    private function createAlbum($spotId, $artistId)
+    {
+        $album = $this->service->album($spotId);
+        Album::create([
+            'name' => $album->name,
+            'artist_id' => $artistId,
+            'album_type_id' => 1,
+            'spot_id' => $spotId,
+            'genres'=>$album->genres,
+            'copytrights' => $album->copyrights[0]->text,
+            'images' => $album->images[0]->url,
+            'release_date' => $album->release_date,
+            'popularity' => $album->popularity
+        ]);
+    }
+
+    private function other()
+    {
+        $dbAlbums = Album::query()->whereNull('genres')->limit(100)->get();
+        foreach ($dbAlbums as  $album) {
+            $result = $this->service->search($album->name, 'album');
+            $album->copytrights = $result->album->copyrights[0]->text;
+            $album->images = $result->album->images[0];
+            $album->release_date = $result->album->release_date;
+            $album->popularity = $result->album->popularity;
+            $album->save();
+            $this->line($album->name . ' spotify\'dan idsi getirildi. ');
+        }
     }
 }

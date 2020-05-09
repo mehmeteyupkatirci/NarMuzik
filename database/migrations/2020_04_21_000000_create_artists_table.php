@@ -21,7 +21,7 @@ class CreateArtistsTable extends Migration
             $table->string('images')->nullable();
             $table->string('checked')->nullable();
             $table->string('searched')->nullable();
-            $table->string('spot_id')->nullable();
+            $table->string('spot_id')->nullable()->unique();
             $table->timestamps();
         });
     }

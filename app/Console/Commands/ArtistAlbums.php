@@ -6,6 +6,7 @@ use App\Album;
 use App\Artist;
 use App\Services\SpotifyService;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 
 class ArtistAlbums extends Command
 {
@@ -45,15 +46,11 @@ class ArtistAlbums extends Command
         foreach ($dbArtist as  $artist) {
             $albums = $this->service->artistAlbums($artist->spot_id);
             foreach ($albums->items as  $oneAlbum) {
-               Album::create(['name'=>$oneAlbum->name,
-                'artist_id' => $artist->id,
-                'album_type_id' => 1,
-                'spot_id' => $oneAlbum->id
-               ]);
+            Artisan::call('album:get_spot_id '.$oneAlbum->id.' --artist_id='.$artist->id);
             }
             $artist->checked = 'true';
             $artist->save();
-
+            $this->line($artist->name . ' spotify\'dan albumu getirildi. ');
         }
         $this->info('Tamamlandı');
     }

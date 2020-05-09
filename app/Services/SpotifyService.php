@@ -127,15 +127,7 @@ class SpotifyService
     //ALBUM İSLEMLERİ------------------------------------------------------
     public function album($albumId)
     {
-        $request = request();
-
-        if (!$request->session()->has('access_token')) {
-            return redirect()->to('spotify/login');
-        }
-
-        $api = new SpotifyWebAPI();
-        $api->setAccessToken($request->session()->get('access_token'));
-
+        $api = $this->getAPiClient();
         try {
             return $api->getAlbum($albumId);
         } catch (\Exception $e) {
