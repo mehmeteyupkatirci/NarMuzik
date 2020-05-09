@@ -40,12 +40,13 @@ class AlbumCommand extends Command
      */
     public function handle()
     {
-        $dbArtists = Album::query()->whereNull('spot_id')->limit(3)->get();
-        foreach ($dbArtists as  $artist) {
-            $result = $this->service->search($artist->name);
-            $artist->spot_id = $result->artists->items[0]->id;
-            $artist->save();
-            $this->line($artist->name.' spotify\'dan idsi getirildi. ');
+        $dbAlbums = Album::query()->whereNull('spot_id')->limit(3)->get();
+        foreach ($dbAlbums as  $album) {
+            $result = $this->service->search($album->name,'album');
+            $album->spot_id = $result->albums->items[0]->id;
+            dd($result);
+            $album->save();
+            $this->line($album->name.' spotify\'dan idsi getirildi. ');
         }
         $this->info('Tamamlandı');
     }

@@ -72,7 +72,7 @@ class SpotifyService
     {
         $api = $this->getAPiClient();
         try {
-            return $api->search($query, $type = 'artist', $options = []);
+            return $api->search($query, $type, $options = []);
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
