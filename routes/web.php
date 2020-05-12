@@ -15,20 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
-
-Route::get('spotify/login', 'SpotifyController@login');
-Route::get('spotify/me', 'SpotifyController@me');
-Route::get('spotify/search', 'SpotifyController@search');
-Route::get('spotify/artist/{id}', 'SpotifyController@artist');
-Route::get('spotify/artist/{id}/related', 'SpotifyController@artistRelated');
-Route::get('spotify/artists/{id}', 'SpotifyController@artists');
-Route::get('spotify/artist/albums/{id}', 'SpotifyController@artistAlbums');
-Route::get('spotify/album/{id}', 'SpotifyController@album');
-Route::get('spotify/albums/{id}', 'SpotifyController@albums');
-Route::get('spotify/album/{id}/tracks', 'SpotifyController@albumTracks');
-Route::get('spotify/track/{id}', 'SpotifyController@track');
-Route::get('spotify/tracks/{id}', 'SpotifyController@tracks');
-
+Route::prefix('spotify')->group(function () {
+    Route::get('login', 'SpotifyController@login');
+    Route::get('/me', 'SpotifyController@me');
+    Route::get('/search', 'SpotifyController@search');
+    Route::get('/artist/{id}', 'SpotifyController@artist');
+    Route::get('/artist/{id}/related', 'SpotifyController@artistRelated');
+    Route::get('/artists/{id}', 'SpotifyController@artists');
+    Route::get('/artist/albums/{id}', 'SpotifyController@artistAlbums');
+    Route::get('/album/{id}', 'SpotifyController@album');
+    Route::get('/albums/{id}', 'SpotifyController@albums');
+    Route::get('/album/{id}/tracks', 'SpotifyController@albumTracks');
+    Route::get('/track/{id}', 'SpotifyController@track');
+    Route::get('/tracks/{id}', 'SpotifyController@tracks');
+});
 Route::group(['middleware'=>['adjustLocale']],function(){
     Route::get('/artists', 'Artists@index');
 
