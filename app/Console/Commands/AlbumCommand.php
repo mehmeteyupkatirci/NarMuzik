@@ -57,25 +57,16 @@ class AlbumCommand extends Command
             'artist_id' => $artistId,
             'album_type_id' => 1,
             'spot_id' => $spotId,
-            'genres'=>$album->genres,
-            'copytrights' => $album->copyrights[0]->text,
+            'copyrights' => $album->copyrights[0]->text,
             'images' => $album->images[0]->url,
             'release_date' => $album->release_date,
             'popularity' => $album->popularity
         ]);
+        $this->line('    ->'.$album->name . ' Albümü getirildi. ');
     }
 
     private function other()
     {
-        $dbAlbums = Album::query()->whereNull('genres')->limit(100)->get();
-        foreach ($dbAlbums as  $album) {
-            $result = $this->service->search($album->name, 'album');
-            $album->copytrights = $result->album->copyrights[0]->text;
-            $album->images = $result->album->images[0];
-            $album->release_date = $result->album->release_date;
-            $album->popularity = $result->album->popularity;
-            $album->save();
-            $this->line($album->name . ' spotify\'dan idsi getirildi. ');
-        }
+       $this->line('createAlbum methodu çalışmıyor');
     }
 }

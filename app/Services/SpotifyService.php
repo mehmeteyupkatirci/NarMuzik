@@ -153,15 +153,7 @@ class SpotifyService
     }
     public function albumTracks($albumId)
     {
-        $request = request();
-
-        if (!$request->session()->has('access_token')) {
-            return redirect()->to('spotify/login');
-        }
-
-        $api = new SpotifyWebAPI();
-        $api->setAccessToken($request->session()->get('access_token'));
-
+        $api = $this->getAPiClient();
         try {
             return $api->getAlbumTracks($albumId);
         } catch (\Exception $e) {
@@ -171,16 +163,7 @@ class SpotifyService
     //ALBUM İSLEMLERİ SONU-------------------------------------------------
     //TRACK İSLEMLERİ-------------------------------------------------------
     public function track($trackId)
-    {
-        $request = request();
-
-        if (!$request->session()->has('access_token')) {
-            return redirect()->to('spotify/login');
-        }
-
-        $api = new SpotifyWebAPI();
-        $api->setAccessToken($request->session()->get('access_token'));
-
+    { $api = $this->getAPiClient();
         try {
             return $api->getTrack($trackId);
         } catch (\Exception $e) {

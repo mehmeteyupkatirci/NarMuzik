@@ -18,9 +18,8 @@ class CreateAlbumsTable extends Migration
             $table->bigInteger('artist_id')->unsigned();
             $table->bigInteger('album_type_id')->unsigned();
             $table->string('name');
-            $table->string('spot_id')->nullable();
-            $table->string('copytrights')->nullable();
-            $table->string('genres')->nullable();
+            $table->string('spot_id')->unique();
+            $table->string('copyrights')->nullable();
             $table->integer('popularity')->nullable();
             $table->string('release_date')->nullable();
             $table->string('images')->nullable();

@@ -11,4 +11,5 @@ class Track extends Model
     {
         return $this->belongsTo('App\Album');
     }
+    protected $fillable = ['name', 'album_id', 'popularity', 'spot_id', 'disc_number', 'duration_ms', 'preview_url',];
 }

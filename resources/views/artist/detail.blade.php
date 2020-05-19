@@ -46,7 +46,7 @@
             <section>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-12">
                             <div class="album-outer">
                                 <!--Music Album List Thumb Start-->
                                 <div class="msl-black">
@@ -65,10 +65,6 @@
                                             </li>
 
                                             <li>
-                                                <div class="title-btn"><span>{{ trans('artist-detail.genres') }}</span></div>
-                                            </li>
-
-                                            <li>
                                                 <div class="title-btn"><span>{{ trans('artist-detail.realese') }}</span></div>
                                             </li>
 
@@ -81,7 +77,7 @@
                                                 <ul>
                                                     <li>
                                                         <div class="cover-pic">
-                                                            <img src="\extra-images\albumkapak.jpg" alt="">
+                                                            <img src="{{$album->images}}" alt="">
                                                         </div>
                                                         <span class="nbr"></span>
                                                         <div class="like-btns"><span><i class="fa fa-heart"></i></span>
@@ -94,83 +90,23 @@
                                                         <div class="artist-title"><span>{{ $album->name }}</span>
                                                         </div>
                                                     </li>
-                                                    <li>
-                                                        <div class="title-btn"><span>{{ $album->genres }}</span></div>
-                                                    </li>
-
                                                     <li><span class="time-trak">{{ $album->release_date }}</span>
                                                         <div class="other-traks"></div>
                                                     </li>
 
                                                     <li>
-                                                        <div class="p-options">
-                                                            <a
-                                                                href="{{ route ('detail',$album->id) }}"><i
-                                                                    class="fa fa-share"></i></a>
-                                                            <a
-                                                                href="{{ route ('detail',$album->id) }}"><i
-                                                                    class="fa fa-comments-o"></i></a>
+                                                        <div class="p-list">
+                                                            <a  href="{{ route ('detail',$album->id) }}"><i class="fa fa-list-alt"></i></a>
+                                                            <a href="{{ route ('detail',$album->id) }}"><i class="fa fa-share"></i></a>
+                                                            <a href="{{ route ('detail',$album->id) }}"><i class="fa fa-comments-o"></i></a>
                                                         </div>
-                                                        <div class="p-list"><a
-                                                                href="{{ route ('detail',$album->id) }}"><i
-                                                                    class="fa fa-list-alt"></i></a></div>
                                                     </li>
                                                 </ul>
                                             @endforeach
                                         @endif
                                     </div>
                                 </div>
-
-                                <!--Music Album List Thumb End-->
-
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <aside>
-
-                                <!--Widget Playlist Start-->
-                                <div class="widget widget-playlist">
-                                    <!--Heading Start-->
-                                    <div class="msl-black">
-                                        <div class="msl-heading light-color">
-                                            <h5><span>{{ trans('artist-detail.playlist') }}</span></h5>
-                                        </div>
-                                    </div>
-                                    <!--Heading End-->
-                                    <div class="widget-player">
-                                        <div class="hide">
-                                            <a href="/media/1.mp3" title="Aenean - <span>Commodo ligula</span>"
-                                                data-artist="Lucas Gonze" data-image="/media/cover1.jpg"
-                                                data-download="1"
-                                                data-buy="https://www.freesound.org/people/lucasgonze/sounds/58970/">.MP3
-                                                file</a><br>
-                                            <a href="/media/2.mp3" title="Aenean - <span>Commodo ligula</span>"
-                                                data-artist="Lucas Gonze" data-image="/media/cover1.jpg"
-                                                data-download="1"
-                                                data-buy="https://www.freesound.org/people/lucasgonze/sounds/58970/">.MP3
-                                                file</a><br>
-                                            <a href="/media/3.mp3" title="Aenean - <span>Commodo ligula</span>"
-                                                data-artist="Lucas Gonze" data-image="/media/cover1.jpg"
-                                                data-download="1"
-                                                data-buy="https://www.freesound.org/people/lucasgonze/sounds/58970/">.MP3
-                                                file</a><br>
-                                            <a href="/media/4.mp3" title="Aenean - <span>Commodo ligula</span>"
-                                                data-artist="Lucas Gonze" data-image="/media/cover1.jpg"
-                                                data-download="1"
-                                                data-buy="https://www.freesound.org/people/lucasgonze/sounds/58970/">.MP3
-                                                file</a><br>
-                                            <a href="/media/5.mp3" title="Aenean - <span>Commodo ligula</span>"
-                                                data-artist="Lucas Gonze" data-image="/media/cover1.jpg"
-                                                data-download="1"
-                                                data-buy="https://www.freesound.org/people/lucasgonze/sounds/58970/">.MP3
-                                                file</a>
-                                        </div>
-                                        <div id="jplayer_jukeboxwidget"></div>
-                                    </div>
-                                </div>
-                                <!--Widget Playlist End-->
-
-                            </aside>
                         </div>
                     </div>
                 </div>
@@ -221,13 +157,8 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <!--Widget Info End-->
                                 </div>
-                                <!--Artist Bio Wrap End-->
                             </div>
-                        </div>
-                        <div class="col-md-4">
-
                         </div>
                     </div>
                 </div>
@@ -235,6 +166,5 @@
         </div>
     </div>
 </div>
-<!--Main Content Wrap End-->
 
 @endsection

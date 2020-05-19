@@ -13,7 +13,7 @@ class TrackCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'track:get_spot_id';
+    protected $signature = 'track:get_spot_id {spot_id} {--album_id=}';
     protected $service;
 
     /**
@@ -40,6 +40,30 @@ class TrackCommand extends Command
      * @return mixed
      */
     public function handle()
+    {
+        if ($this->argument('spot_id') && $this->option('album_id')) {
+            $this->createTrack($this->argument('spot_id'), $this->option('album_id'));
+        } else {
+            $this->other();
+        }
+
+        $this->info('Tamamlandı');
+       
+    }
+    private function createTrack($spotId, $albumId)
+    {
+        $track = $this->service->track($spotId);
+        Track::create([
+            'spot_id' => $spotId,
+            'name' => $track->name,
+            'album_id' => $albumId,
+            'disc_number'=>$track->disc_number,
+            'duration_ms'=>$track->duration_ms,
+            'preview_url'=>$track->preview_url,
+            'popularity' => $track->popularity
+        ]);
+    }
+    public function other()
     {
         $dbTracks = Track::query()->whereNull('spot_id')->limit(3)->get();
         foreach ($dbTracks as  $track) {

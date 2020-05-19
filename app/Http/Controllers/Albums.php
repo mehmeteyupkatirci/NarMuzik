@@ -18,7 +18,7 @@ class Albums extends Controller
     public function index()
     {
         //
-        $albums = Album::orderByRaw('RAND()')->take(8)->get();
+        $albums = Album::paginate(10);
         return view('album/home', compact('albums'));
     }
     public function detail($id)

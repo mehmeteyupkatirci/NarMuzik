@@ -21,13 +21,11 @@ class CreateUserLikedPlaylistsTable extends Migration
         });
         Schema::table('user_liked_playlists', function($table){
             $table->foreign('user_id')
-            ->references('id')->on('users')
-            ->onDelete('cascade');
+            ->references('id')->on('users');
         });
         Schema::table('user_liked_playlists', function($table){
             $table->foreign('playlist_id')
-            ->references('id')->on('playlists')
-            ->onDelete('cascade');
+            ->references('id')->on('playlists');
         });
     }
 

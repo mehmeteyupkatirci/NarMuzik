@@ -22,7 +22,7 @@ class ArtistRelated extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Spotify verilerinden artistin bağlantılı olduğu diğer artistleri getirir.';
     protected $service;
 
     /**
@@ -57,9 +57,7 @@ class ArtistRelated extends Command
                    ]);
                    $this->line($oneArtists->name.' spotify\'dan idsi getirildi. ');
                } catch (\Exception $e) {
-                   
                }
-               
             }
             $artist->searched = 'true';
             $artist->save();

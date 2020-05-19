@@ -11,7 +11,7 @@
                     <div class="col-md-3">
                         <div class="latest-album">
                             <article>
-                                <figure><a href="#"><img src="extra-images\albumkapak.jpg" alt=""></a></figure>
+                                <figure><a href="#"><img src="{{$album->images}}" alt=""></a></figure>
                                 <div class="text webkit">
                                     <div class="left-sec">
                                     <h6><a href="{{route ('detail',$album->id)}}">{{$album->name}}</a></h6>
@@ -25,11 +25,7 @@
                     </div>
                     @endforeach
                 @endif
-                 <!--Load More Start-->
-                <div class="col-md-12">
-                   
-                </div>
-                <!--Load More End-->
+                {{$albums->links()}}
            </div>
         </div>
     </section>

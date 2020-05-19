@@ -15,14 +15,13 @@ class CreateTracksTable extends Migration
     {
         Schema::create('tracks', function (Blueprint $table) {
             $table->id();
-            $table->string('spot_id');
+            $table->string('spot_id')->nullable()->unique();
             $table->bigInteger('album_id')->unsigned();
             $table->string('name');
             $table->string('disc_number')->nullable();
             $table->string('duration_ms')->nullable();
             $table->string('preview_url')->nullable();
             $table->integer('popularity')->nullable();
-            $table->string('images');
             $table->timestamps();
         });
         Schema::table('tracks', function($table){

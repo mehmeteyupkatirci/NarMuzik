@@ -24,8 +24,7 @@ class CreatePlaylistsTable extends Migration
         });
         Schema::table('playlists', function($table){
             $table->foreign('user_id')
-            ->references('id')->on('users')
-            ->onDelete('cascade');
+            ->references('id')->on('users');
         });
     }
 

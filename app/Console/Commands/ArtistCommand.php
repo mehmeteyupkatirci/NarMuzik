@@ -13,7 +13,7 @@ class ArtistCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'artist:get-id-spot';
+    protected $signature = 'artist:get';
 
     /**
      * The console command description.
@@ -46,8 +46,8 @@ class ArtistCommand extends Command
             $artist->genres = $result->genres[0];
             $artist->popularity = $result->popularity;
             $artist->images = $result->images[0]->url;
-            $artist->save();
-            
+            $artist->save();            
+            $this->line($artist->name . ' spotify\'dan infosu getirildi. ');
         }
         $this->info('Tamamlandı');
     }

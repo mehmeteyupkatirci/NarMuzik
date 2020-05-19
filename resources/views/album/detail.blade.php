@@ -7,7 +7,7 @@
         <div class="col-md-4 col-sm-6">
             <div class="msl-blog-full blog-small">
                 <figure>
-                    <img src="\extra-images\masonry-blog5.jpg" alt="KODEFOREST">
+                    <img src="{{$albums->artist->images}}" alt="KODEFOREST">
                     <span class="editor-label">{{ trans('album-detail.artist') }}</span>
                 </figure>
                 <div class="text">
@@ -24,13 +24,12 @@
         <div class="col-md-4 col-sm-6">
             <div class="msl-blog-full blog-small">
                 <figure>
-                    <img src="\extra-images\product-img02.jpg" alt="KODEFOREST">
+                    <img src="{{$albums->images}}" alt="KODEFOREST">
                     <span class="editor-label">{{ trans('album-detail.album') }}</span>
                 </figure>
                 <div class="text">
                     <h5 class="blog-title"><a href="{{route ('artist_detail',$albums->artist_id)}}">{{$albums->name}}</a></h5>
-                    <p> {{ trans('album-detail.genres') }} : {{$albums->genres}} <br/>
-                        {{ trans('album-detail.copyrights') }} : {{$albums->copytrights}}<br/>
+                    <p> {{ trans('album-detail.copyrights') }} : {{$albums->copytrights}}<br/>
                         {{ trans('album-detail.popularity') }} : 100 % {{$albums->popularity}}<br/>
                         {{ trans('album-detail.release') }} : {{$albums->release_date}}<br/>
                     </p>
@@ -45,7 +44,6 @@
             <ul class="mp3-list-table">
                 <li class="list-header">
                     <div class="mp3-title"><h6>{{ trans('track-home.name') }}</h6></div>
-                    <div class="tracks"><h6>{{ trans('track-home.genres') }}</h6></div>
                     <div class="remixers"><h6>{{ trans('track-home.album') }}</h6></div>
                     <div class="mp3-label"><h6>{{ trans('track-home.popularity') }}</h6></div>
                     <div class="genre"><h6>{{ trans('track-home.lenght') }}</h6></div>
@@ -68,7 +66,6 @@
                                 <h6><a href="{{route ('track_detail',$track->id)}}">{{$track->name}}</a></h6>
                             </div>
                         </div>
-                        <div class="tracks"><h6><b>{{$track->album->genres}}</b></h6></div>
                         <div class="remixers"><h6><b>{{$track->album->name}}</b></h6></div>
                         <div class="mp3-label"><h6>{{$track->popularity}}</h6></div>
                         <div class="genre"><h6>{{$track->duration_ms}}</h6></div>
