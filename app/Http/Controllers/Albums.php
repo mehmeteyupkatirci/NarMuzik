@@ -18,7 +18,7 @@ class Albums extends Controller
     public function index()
     {
         //
-        $albums = Album::paginate(10);
+        $albums = Album::paginate(20);
         return view('album/home', compact('albums'));
     }
     public function detail($id)

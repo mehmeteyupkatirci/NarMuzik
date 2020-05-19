@@ -14,7 +14,7 @@
                                 <figure><a href="#"><img src="{{$album->images}}" alt=""></a></figure>
                                 <div class="text webkit">
                                     <div class="left-sec">
-                                    <h6><a href="{{route ('detail',$album->id)}}">{{$album->name}}</a></h6>
+                                    <h6><a href="{{route ('detail',$album->id)}}">{{ substr($album->name, 0,  17) }}</a></h6>
                                         <p>{{$album->genres}}</p>
                                     </div>
                                     <a class="icon-plus webkit" href="{{route ('artist_detail',$album->artist_id)}}"><i class="fa fa-plus fa-2x"></i></a>

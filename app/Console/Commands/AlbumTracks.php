@@ -41,7 +41,7 @@ class AlbumTracks extends Command
      */
     public function handle()
     {
-        $dbAlbum = Album::query()->whereNull('checked')->limit(100)->get();
+        $dbAlbum = Album::query()->whereNull('checked')->limit(1000)->get();
         foreach ($dbAlbum as  $album) {
            $track = $this->service->albumTracks($album->spot_id);
             foreach ($track->items as  $oneTrack) {
