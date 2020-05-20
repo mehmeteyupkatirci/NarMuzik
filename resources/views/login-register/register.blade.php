@@ -20,27 +20,47 @@
                 <div class="row">
                   <div class="col-md-9 col-lg-8 mx-auto">
                     <h3 class="login-heading mb-4">{{ trans('registerPage.heading') }}</h3>
-                    <form>
+                    <form method="POST" action="{{ route('register') }}">
+                      @csrf
                         <div class="form-label-group">
-                            <input type="name" id="inputName" class="form-control" placeholder="Name" required autofocus>
+                            <input type="name" id="inputName" placeholder="Name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                            
+                            @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                             @enderror
+
                             <label for="inputName">{{ trans('registerPage.name') }}</label>
-                          </div>
+                        </div>
                       <div class="form-label-group">
-                        <input type="email" id="inputEmail" class="form-control" placeholder="{{ trans('login-page.email') }}" required autofocus>
+                        <input type="email" id="inputEmail" placeholder="{{ trans('login-page.email') }}" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                          @error('email')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                          @enderror
                         <label for="inputEmail">{{ trans('login-page.email') }}</label>
                       </div>
-      
                       <div class="form-label-group">
-                        <input type="password" id="inputPassword" class="form-control" placeholder="{{ trans('login-page.password') }}" required>
+                        <input type="password" id="inputPassword" placeholder="{{ trans('login-page.password') }}" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                          @error('password')
+                                      <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                      </span>
+                          @enderror
                         <label for="inputPassword">{{ trans('login-page.password') }}</label>
                       </div>
                       <div class="form-label-group">
-                        <input type="password" id="confirmPassword" class="form-control" placeholder="{{ trans('registerPage.confirm') }}" required>
+                        <input type="password" id="confirmPassword" placeholder="{{ trans('registerPage.confirm') }}" 
+                        class="form-control" name="password_confirmation" required autocomplete="new-password">
                         <label for="confirmPassword">{{ trans('registerPage.confirm') }}</label>
                       </div>
+                      <div>
                       <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">{{ trans('registerPage.register') }}</button>
+                    </div>
                     <div class="text-center">
-                        <a class="small" href="/logindeneme">{{ trans('registerPage.login') }}</a></div>
+                        <a class="small" href="/sign-in">{{ trans('registerPage.login') }}</a></div>
                     </div>
                     </form>
                   </div>

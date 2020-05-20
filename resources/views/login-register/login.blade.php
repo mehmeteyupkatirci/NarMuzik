@@ -63,7 +63,7 @@
                         <a class="small" href="{{ route('password.request') }}">{{ trans('login-page.forgot') }}</a>
                       </div>
                       <div class="text-center">
-                        <a class="small" href="/registerdeneme">{{ trans('login-page.register') }}</a>
+                        <a class="small" href="/sign-up">{{ trans('login-page.register') }}</a>
                       </div>
                     </form>
                   </div>
