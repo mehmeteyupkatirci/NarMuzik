@@ -61,7 +61,7 @@ Route::get('/playlist','Playlists@index');
 
 Route::resource('playlist','Playlists');
 
-Route::get('/logindeneme','Login@index');
+Route::get('/sign-in','Login@index');
 
 Route::get('/registerdeneme','Register@index');
 ?>

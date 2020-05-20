@@ -20,24 +20,47 @@
                 <div class="row">
                   <div class="col-md-9 col-lg-8 mx-auto">
                     <h3 class="login-heading mb-4">{{ trans('login-page.heading') }}</h3>
-                    <form>
+                    <form method="POST" action="{{ route('login') }}">
+                      @csrf
                       <div class="form-label-group">
-                        <input type="email" id="inputEmail" class="form-control" placeholder="{{ trans('login-page.email') }}" required autofocus>
+
+                        <input type="email" id="inputEmail" class="form-control @error('email') is-invalid @enderror" 
+                        name="email" value="{{ old('email') }}" placeholder="{{ trans('login-page.email') }}"  
+                        required autocomplete="email" autofocus>
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
                         <label for="inputEmail">{{ trans('login-page.email') }}</label>
                       </div>
       
                       <div class="form-label-group">
-                        <input type="password" id="inputPassword" class="form-control" placeholder="{{ trans('login-page.password') }}" required>
+                        <input type="password" id="inputPassword" class="form-control @error('password') is-invalid @enderror" name="password" 
+                        required autocomplete="current-password" placeholder="{{ trans('login-page.password') }}">
+                        @error('password')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
                         <label for="inputPassword">{{ trans('login-page.password') }}</label>
                       </div>
       
                       <div class="custom-control custom-checkbox mb-3">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} >
                         <label class="custom-control-label" for="customCheck1">{{ trans('login-page.remember') }}</label>
                       </div>
-                      <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">{{ trans('login-page.sign') }}</button>
+                    <div>
+                      <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" href="/" type="submit">{{ trans('login-page.sign') }}</button>
+                      @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                      @endif
+                    </div>
                       <div class="text-center">
-                        <a class="small" href="#">{{ trans('login-page.forgot') }}</a>
+                        <a class="small" href="{{ route('password.request') }}">{{ trans('login-page.forgot') }}</a>
                       </div>
                       <div class="text-center">
                         <a class="small" href="/registerdeneme">{{ trans('login-page.register') }}</a>

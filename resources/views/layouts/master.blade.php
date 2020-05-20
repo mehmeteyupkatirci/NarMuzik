@@ -83,7 +83,7 @@
                         <div class="right-side">
 						@guest
 						<div class="login-register">
-							<a href="/login" >{{ trans('master.login') }}</a>
+							<a href="/sign-in" >{{ trans('master.login') }}</a>
 							<a href="/register"  >{{ trans('master.register') }}</a>
 						</div>
 						@else
