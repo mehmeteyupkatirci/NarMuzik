@@ -13,7 +13,7 @@ class Register extends Controller
      */
     public function index()
     {
-        return ('login-register/register');
+        return view('login-register/register');
     }
 
     /**

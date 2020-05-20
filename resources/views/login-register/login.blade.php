@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js">
-<title>Üye Ol</title>
+<title>{{ trans('login-page.title') }}</title>
 </head>
 <body>
     <div class="container-fluid">
@@ -37,7 +37,11 @@
                       </div>
                       <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">{{ trans('login-page.sign') }}</button>
                       <div class="text-center">
-                        <a class="small" href="#">{{ trans('login-page.forgot') }}</a></div>
+                        <a class="small" href="#">{{ trans('login-page.forgot') }}</a>
+                      </div>
+                      <div class="text-center">
+                        <a class="small" href="/registerdeneme">{{ trans('login-page.register') }}</a>
+                      </div>
                     </form>
                   </div>
                 </div>
