@@ -62,7 +62,6 @@ class AlbumCommand extends Command
             'release_date' => $album->release_date,
             'popularity' => $album->popularity
         ]);
-        $this->line('    ->'.$album->name . ' Albümü getirildi. ');
     }
 
     private function other()

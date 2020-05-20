@@ -43,7 +43,7 @@ class ArtistRelated extends Command
      */
     public function handle()
     {
-        $dbArtist = Artist::query()->whereNull('searched')->limit(100)->get();
+        $dbArtist = Artist::query()->whereNull('searched')->limit(1000)->get();
         foreach ($dbArtist as  $artist) {
             $artists = $this->service->artistRelated($artist->spot_id);
             foreach ($artists->artists as  $oneArtists) {

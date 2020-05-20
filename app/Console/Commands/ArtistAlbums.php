@@ -42,7 +42,7 @@ class ArtistAlbums extends Command
      */
     public function handle()
     {
-        $dbArtist = Artist::query()->whereNull('checked')->limit(100)->get();
+        $dbArtist = Artist::query()->whereNull('checked')->limit(1000)->get();
         foreach ($dbArtist as  $artist) {
             $albums = $this->service->artistAlbums($artist->spot_id);
             foreach ($albums->items as  $oneAlbum) {
