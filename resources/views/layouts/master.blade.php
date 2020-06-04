@@ -148,7 +148,8 @@
                                 <ul class="playlist_menu_bar">
 									<li class=" kf_menu_button"> 
 										<select id="languages" onChange="languageSelectChange()">
-											<option value="tr">Türkçe</option>
+                                            <option value="tr">Varsayılan</option>
+                                            <option value="tr">Türkçe</option>
                                             <option value="en">İngilizce</option>                                            
                                         </select>
 										<script>

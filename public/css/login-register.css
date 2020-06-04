@@ -9,7 +9,7 @@
   }
   
   .bg-image {
-    background-image: url('https://source.unsplash.com/1600x900/?musician');
+    background-image: url('https://source.unsplash.com/random');
     background-size: cover;
     background-position: center;
   }

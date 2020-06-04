@@ -55,7 +55,6 @@
                       <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" href="/" type="submit">{{ trans('login-page.sign') }}</button>
                       @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
                                     </a>
                       @endif
                     </div>

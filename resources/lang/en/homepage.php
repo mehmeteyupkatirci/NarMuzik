@@ -7,6 +7,9 @@ return [
     'button2'=> 'Albums',
     'top' => 'Most popular of the week',
     'music' => 'Music',
-    'show' => 'Show More'
+    'show' => 'Show More',
+    'track' => 'Tracks',
+    'album' => 'Albums',
+    'artist' => 'Artists'
 ];
 ?>

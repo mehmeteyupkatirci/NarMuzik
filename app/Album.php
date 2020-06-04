@@ -17,5 +17,4 @@ class Album extends Model
     }
     
     protected $fillable = ['name', 'artist_id' , 'album_type_id', 'spot_id', 'images', 'release_date', 'popularity'];
-    
 }

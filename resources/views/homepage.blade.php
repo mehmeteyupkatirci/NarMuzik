@@ -22,7 +22,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-4 col-sm-12 col-xs-12">
-                                <h3>Tracks</h3>
+                                <h3>{{trans('homepage.track')}}</h3>
                                 @if($tracks)
                                     @foreach ($tracks as $track)
                                         <div class="kode_event">
@@ -36,7 +36,7 @@
                                 @endif
                             </div>
                             <div class="col-md-4 col-sm-12 col-xs-12">
-                                <h3>Albums</h3>
+                                <h3>{{trans('homepage.album')}}</h3>
                                 @if($albums)
                                     @foreach ($albums as $album)
                                         <div class="kode_event">
@@ -50,7 +50,7 @@
                                 @endif
                             </div>
                             <div class="col-md-4 col-sm-12 col-xs-12">
-                                <h3>Artists</h3>
+                                <h3>{{trans('homepage.artist')}}</h3>
                                 @if($artists)
                                     @foreach ($artists as $artist)
                                         <div class="kode_event">
